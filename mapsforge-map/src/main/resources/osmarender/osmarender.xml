@@ -2,6 +2,10 @@
 <rendertheme xmlns="http://mapsforge.org/renderTheme" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://mapsforge.org/renderTheme ../renderTheme-v4.xsd" version="4" map-background="#f8f8f8" map-background-outside="#dddddd">
 
+	<rule e="way" k="AREAL" v="*">
+		<line stroke="#FF00F2"/>
+	</rule>
+	
 	<rule e="way" k="natural" v="issea|sea">
 		<area fill="#B3DDFF"/>
 	</rule>

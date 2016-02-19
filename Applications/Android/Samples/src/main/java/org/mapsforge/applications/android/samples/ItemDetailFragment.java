@@ -15,7 +15,12 @@
  */
 package org.mapsforge.applications.android.samples;
 
-import java.io.File;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import org.mapsforge.applications.android.samples.dummy.DummyContent;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
@@ -28,12 +33,7 @@ import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.io.File;
 
 /**
  * A fragment representing a single Item detail screen. This fragment is either

@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">NavTest</string>
+
+    <string name="title_section1">Kart</string>
+    <string name="title_section2">Filtrering</string>
+    <string name="title_section3">Skilt</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Instillinger</string>
+
+    <string-array name="navigation_drawer_items_array">
+        <item>Create</item>
+        <item>Read</item>
+        <item>Help</item>
+    </string-array>
 
     <string name="copyright_osm">Map data © OpenStreetMap contributors</string>
 
@@ -85,5 +103,8 @@
     <string name="startup_message">To run this samples app, you need any map with filename germany.map installed on the sdcard.</string>
     <string name="startup_message_tilestore">To run this sample activity, you need a TMS tile store at /sdcard/tilestore. Sample data in the Samples/data directory.</string>
 	<string name="startup_message_multimap">To run this sample activity, you need to download a low-resolution world map first.</string>
+    <string name="title_activity_navigasjon_meny">NavigasjonMeny</string>
+
+
 
 </resources>

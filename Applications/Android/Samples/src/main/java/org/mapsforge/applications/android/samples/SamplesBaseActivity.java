@@ -164,7 +164,7 @@ public abstract class SamplesBaseActivity extends MapViewerTemplate implements S
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.options_menu, menu);
-		return true;
+		return false;
 	}
 
 	@SuppressWarnings("deprecation")

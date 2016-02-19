@@ -1,23 +1,36 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 dependencies {
-  compile project(":mapsforge-map-android")
-  compile 'com.google.android:support-v4:r7'
-  androidTestCompile group: 'com.jayway.android.robotium', name: 'robotium-solo', version:'5.2.1'
+    compile project(':mapsforge-map-android')
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.2.1'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.2.1:'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.android.support:support-v13:23.1.1'
 }
 
 
 android {
-
-  defaultConfig {
-    testApplicationId "org.mapsforge.applications.android.samples.test"
-    testInstrumentationRunner "android.test.InstrumentationTestRunner"
-  }
-
-  sourceSets {
-    androidTest {
-      java.srcDirs = ['src/androidTest']
+    defaultConfig {
+        testApplicationId "org.mapsforge.applications.android.samples.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+        minSdkVersion 16
+        targetSdkVersion 23
     }
-  }
+    sourceSets {
+        androidTest {
+            java.srcDirs = ['src/androidTest']
+        }
+    }
+    compileSdkVersion 23
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    productFlavors {
+    }
+    buildToolsVersion '23.0.2'
 }
+
 

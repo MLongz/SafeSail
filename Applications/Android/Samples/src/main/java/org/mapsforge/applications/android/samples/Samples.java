@@ -48,11 +48,11 @@ public class Samples extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intent;
 		switch (item.getItemId()) {
-		case R.id.menu_preferences:
-			intent = new Intent(this, Settings.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-			startActivity(intent);
-			return true;
+			case R.id.menu_preferences:
+				intent = new Intent(this, Settings.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				startActivity(intent);
+				return true;
 		}
 		return false;
 	}
@@ -163,7 +163,7 @@ public class Samples extends Activity {
 					}
 				}
 
-				));
+		));
 
 		linearLayout.addView(createLabel("Experiments"));
 		linearLayout.addView(createButton(RenderThemeChanger.class,

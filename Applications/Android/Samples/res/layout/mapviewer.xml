@@ -17,8 +17,25 @@
         android:layout_marginBottom="1dip"
         android:gravity="center"
         android:singleLine="true"
-        android:text="@string/copyright_osm"
         android:textColor="#000"
         android:textSize="4pt" />
+
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageViewCompass"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:text="0.0°"
+        android:textColor="#000000"/>
+
+    <ImageView
+    android:id="@+id/imageViewCompass"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:src="@drawable/compass"/>
 
 </RelativeLayout>
