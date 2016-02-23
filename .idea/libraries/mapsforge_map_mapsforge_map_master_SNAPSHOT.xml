@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="mapsforge-map.mapsforge-map-master-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/mapsforge-map/build/libs/mapsforge-map-master-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
