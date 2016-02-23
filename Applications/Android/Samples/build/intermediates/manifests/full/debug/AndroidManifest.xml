@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.mapsforge.applications.android.samples"
+    android:installLocation="auto"
+    android:versionCode="52"
+    android:versionName="master-SNAPSHOT" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-library android:name="com.google.android.maps" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <activity
+        android:name="org.mapsforge.applications.android.samples.MapsActivity"
+        android:label="@string/app_name" >
+    </activity>
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+    <meta-data
+        android:name="com.google.android.maps.v2.API_KEY"
+        android:value="@string/google_maps_key" />
+
+    <activity
+        android:name="org.mapsforge.applications.android.samples.TestView"
+        android:label="En test view" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.BasicMapViewerV3"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Map Viewer with built-in V3 Rendertheme (osmarender)" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.LabelLayerMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="BasicMapViewer Labels on Tiles" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.NoXMLLayout"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Map Viewer without XML Layout" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.SimplestMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Simplest Map Viewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DownloadLayerViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="DownloadLayerViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.TileStoreLayerViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Tile Store Viewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DownloadCustomLayerViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="DownloadCustomLayerViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DiagnosticsMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="DiagnosticsMapViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.RenderTheme4"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="RenderTheme V4" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.TwoMaps"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Two Maps Overlaid" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.RenderThemeChanger"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Automatically changes between renderthemes on SDCard" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.TileSizeChanger"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Automatically changes tile sizes" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.OverlayMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="OverlayMapViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.GridMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Geographical Grid" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.ZoomToBounds"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Zooms to map bounds of overlay" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.OverlayWithoutBaseMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="OverlayWithoutBaseMapViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.LongPressAction"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Create and delete circles with long press" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.MoveAnimation"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Long press triggers animation to point" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.ChangingBitmaps"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Bitmaps automatically change" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.LocationOverlayMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="LocationOverlayMapViewer" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.BubbleOverlay"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Information bubbles" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DualMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Dual Map View" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DualMapViewerWithDifferentDisplayModels"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Two views with different DisplayModels" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DualMapViewerWithClampedTileSizes"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Clamping tile sizes to fixed multiples" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DualMapnikMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Two tied viewers" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.DualOverviewMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Show a little overview map at different zoom level" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.MultiMapLowResWorld"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Low res world background" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.StackedLayersMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Multiple layers generated from same map" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.RotateMapViewer"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Map Rotation (external)" />
+    <activity
+        android:name="org.mapsforge.applications.android.samples.ItemListActivity"
+        android:label="Fragments Item List"
+        android:parentActivityName="org.mapsforge.applications.android.samples.Samples" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="org.mapsforge.applications.android.samples.Samples" />
+    </activity>
+    <activity
+        android:name="org.mapsforge.applications.android.samples.ItemDetailActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:label="Fragments Item Details"
+        android:parentActivityName="org.mapsforge.applications.android.samples.ItemListActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ItemListActivity" />
+    </activity>
+    <activity
+        android:name="org.mapsforge.applications.android.samples.Settings"
+        android:label="Settings"
+        android:parentActivityName="org.mapsforge.applications.android.samples.Samples" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Samples" />
+    </activity>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+ <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name="org.mapsforge.applications.android.samples.SamplesApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:label="Mapsforge Samples"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="org.mapsforge.applications.android.samples.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.google.android.gms.measurement.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>
