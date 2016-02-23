@@ -11,4 +11,4 @@
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.13" />
-</LinearLayout><!-- From: file:/C:/Users/Long%20Huynh/Dropbox/SafeSail/Applications/Android/Samples/res/layout/instillinger_layout.xml -->
+</LinearLayout><!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/res/layout/instillinger_layout.xml -->

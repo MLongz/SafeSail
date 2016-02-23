@@ -4,4 +4,4 @@
 	<LinearLayout 
 		android:id="@+id/samples" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:orientation="vertical" android:gravity="center_horizontal" />
-</ScrollView><!-- From: file:/C:/Users/Long%20Huynh/Dropbox/SafeSail/Applications/Android/Samples/res/layout/activity_samples.xml -->
+</ScrollView><!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/res/layout/activity_samples.xml -->

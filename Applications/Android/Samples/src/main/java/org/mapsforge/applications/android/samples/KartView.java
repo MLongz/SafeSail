@@ -118,7 +118,6 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
 
         // only once a layer is associated with a mapView the rendering starts
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
-
         return rootView;
     }
 

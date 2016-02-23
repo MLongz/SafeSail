@@ -4,21 +4,27 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by Long Huynh on 09.02.2016.
  */
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+    NotificationManager nManager;
+    static Button notifCount;
+    static int mNotifCount = 0;
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -36,13 +42,14 @@ public class MainActivity extends Activity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        mTitle = "SafeSail";
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
+         nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        getVarsel(1, "Death incoming");
     }
 
     @Override
@@ -90,7 +97,6 @@ public class MainActivity extends Activity
                 break;
             case 4:
                 mTitle = getString(R.string.action_settings);
-
                 break;
         }
     }
@@ -105,15 +111,16 @@ public class MainActivity extends Activity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
-            restoreActionBar();
-            return true;
-        }
+        getMenuInflater().inflate(R.menu.main, menu);
+        View count = menu.findItem(R.id.varselicon).getActionView();
+        notifCount = (Button) count.findViewById(R.id.notif_count);
+        notifCount.setText(String.valueOf(mNotifCount));
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private void setNotifCount(int count){
+        mNotifCount = +count;
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -170,5 +177,19 @@ public class MainActivity extends Activity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
+    private void getVarsel(int mNotificationId, String melding){
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        mBuilder.setSmallIcon(R.drawable.varsel);
+        mBuilder.setContentTitle("SafeSail");
+        mBuilder.setContentText(melding);
+        mBuilder.setContentIntent(pendingIntent);
+        nManager.notify(mNotificationId, mBuilder.build());
+        setNotifCount(1);
+    }
+
 
 }
