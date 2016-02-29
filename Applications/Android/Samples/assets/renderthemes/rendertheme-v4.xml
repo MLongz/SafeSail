@@ -139,8 +139,47 @@
 
 	</stylemenu>
 
-	<rule e="way" k="AREAL" v="*">
-		<line stroke="#FF00F2"/>
+	<rule e="way" k="dybdeareal" v="*">
+		<area fill="#B3DDFF"/>
+	</rule>
+	
+	<rule e="way" k="dybdekontur" v="*">
+		<line stroke="#9775AA"/>
+	</rule>
+
+	<rule e="way" k="flytebrygge_a" v="test">
+		<area fill="#303634"/>
+	</rule>
+
+	<rule e="way" k="flytebrygge_l" v="test">
+		<line stroke="#3A3F3D" stroke-width="1.0"/>
+	</rule>
+
+	<rule e="way" k="grunne" v="*">
+		<line stroke="#29616B" stroke-width="1.0"/>
+	</rule>
+
+	<rule e="way" k="konst_kyst_gr" v="test">
+		<line stroke="#78367F" stroke-width="1.0"/>
+	</rule>
+
+	<rule e="way" k="konst_kyst_l" v="test">
+		<line stroke="#AC3C39" stroke-width="1.0"/>
+	</rule>
+
+	<rule cat="nature" e="way" k="kystkontur" v="test">
+		<line stroke="#489230" stroke-width="1.0"/>
+	</rule>
+	
+	<rule e="way" k="kystsperre" v="*">
+		<line stroke="#489230"/>
+	</rule>
+	
+	<rule e="way" k="skjaer" v="test">
+		<symbol id="helipad" src="assets:symbols/transport/helicopter_pad.svg"/>
+		<rule e="any" k="*" v="*" zoom-min="17">
+			<caption priority="-20" symbol-id="helipad" k="name" position="above" font-style="bold" font-size="12" fill="#0092DA" stroke="#FFFFFF" stroke-width="2.0"/>
+		</rule>
 	</rule>
 
 	<rule e="way" k="natural" v="issea|sea">
