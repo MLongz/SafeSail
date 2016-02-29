@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.RenderScript;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -15,16 +16,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Long Huynh on 09.02.2016.
  */
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    ListView varselListView;
+    List<String> varselList;
+    ArrayAdapter<String> adapter;
     NotificationManager nManager;
+    boolean varselOpen = false;
     static Button notifCount;
     static int mNotifCount = 0;
+    public static long now = System.currentTimeMillis();
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -49,6 +62,13 @@ public class MainActivity extends Activity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
          nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+
+        varselListView = (ListView) findViewById(R.id.notification_list_view);
+        varselList = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, varselList);
+        varselListView.setAdapter(adapter);
+
         getVarsel(1, "Death incoming");
     }
 
@@ -110,13 +130,28 @@ public class MainActivity extends Activity
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        View count = menu.findItem(R.id.varselicon).getActionView();
-        notifCount = (Button) count.findViewById(R.id.notif_count);
-        notifCount.setText(String.valueOf(mNotifCount));
-        return super.onCreateOptionsMenu(menu);
-    }
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.main, menu);
+            restoreActionBar();
+            final View count = menu.findItem(R.id.varselicon).getActionView();
+            notifCount = (Button) count.findViewById(R.id.notif_count);
+            notifCount.setText(String.valueOf(mNotifCount));
+        notifCount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(varselOpen != true) {
+                        varselListView.setVisibility(View.VISIBLE);
+                        varselOpen = true;
+                    }else {
+                        varselListView.setVisibility(View.GONE);
+                        varselOpen = false;
+                        mNotifCount = 0;
+                        notifCount.setText(String.valueOf(mNotifCount));
+                    }
+                }
+            });
+            return super.onCreateOptionsMenu(menu);
+        }
 
     private void setNotifCount(int count){
         mNotifCount = +count;
@@ -185,10 +220,16 @@ public class MainActivity extends Activity
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setSmallIcon(R.drawable.varsel);
         mBuilder.setContentTitle("SafeSail");
+        mBuilder.setWhen(now);
         mBuilder.setContentText(melding);
         mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setPriority(2);
+        // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+        mBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
         nManager.notify(mNotificationId, mBuilder.build());
         setNotifCount(1);
+        varselList.add(melding);
+        adapter.notifyDataSetChanged();
     }
 
 

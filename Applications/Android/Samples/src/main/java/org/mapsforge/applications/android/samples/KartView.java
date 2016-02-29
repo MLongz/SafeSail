@@ -33,6 +33,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
+import org.mapsforge.map.android.rendertheme.AssetsRenderTheme;
 import org.mapsforge.map.android.util.AndroidUtil;
 import org.mapsforge.map.layer.Layer;
 import org.mapsforge.map.layer.LayerManager;
@@ -45,20 +46,28 @@ import org.mapsforge.map.reader.MapDataStore;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 import org.mapsforge.map.android.view.MapView;
+import org.mapsforge.map.rendertheme.XmlRenderTheme;
+import org.mapsforge.map.rendertheme.XmlRenderThemeMenuCallback;
+import org.mapsforge.map.rendertheme.XmlRenderThemeStyleLayer;
+import org.mapsforge.map.rendertheme.XmlRenderThemeStyleMenu;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Long Huynh on 10.02.2016.
  */
 public class KartView extends Fragment implements SensorEventListener, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener {
+        GoogleApiClient.OnConnectionFailedListener, LocationListener, XmlRenderThemeMenuCallback {
     private static final String MAPFILE = "germany.map";
     private MapView mapView;
     private TileCache tileCache;
     private TileRendererLayer tileRendererLayer;
+    private XmlRenderThemeStyleMenu renderThemeStyleMenu;
+
 
     private ImageView imageCompass;
     private float currentDegree = 0f;
@@ -95,30 +104,58 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
         this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
 
+        creatTileCache();
+        createLayer();
+
+        // only once a layer is associated with a mapView the rendering starts
+        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
+        return rootView;
+    }
 
 
+    public XmlRenderTheme getRenderTheme() {
+        try {
+            return new AssetsRenderTheme(this.getActivity(), getRenderThemePrefix(), getRenderThemeFile(), this);
+        } catch (IOException e) {
+            Log.e(SamplesApplication.TAG, "Render theme failure " + e.toString());
+        }
+        return null;
+    }
+
+    public String getRenderThemePrefix() {
+        return "";
+    }
+
+
+    public String getRenderThemeFile() {
+        return "renderthemes/rendertheme-v4.xml";
+    }
+
+    private void createLayer() {
+        MapDataStore mapDataStore =  getMapFile();
+        this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
+                this.mapView.getModel().mapViewPosition, false, true, AndroidGraphicFactory.INSTANCE);
+        tileRendererLayer.setXmlRenderTheme(getRenderTheme());
+
+        /**this.tileRendererLayer = AndroidUtil.createTileRendererLayer(tileCache,
+                mapView.getModel().mapViewPosition, getMapFile(), getRenderTheme(), false, true);
+        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);*/
+    }
+
+    private void creatTileCache() {
         LayerManager layerManager = this.mapView.getLayerManager();
         Layers layers = layerManager.getLayers();
 
         MapViewPosition mapViewPosition = this.mapView.getModel().mapViewPosition;
         mapViewPosition.setZoomLevel((byte) 16);
+
         tileCache = AndroidUtil.createTileCache(this.getActivity(),
                 "fragments",
                 this.mapView.getModel().displayModel.getTileSize(), 1.0f,
                 1.5);
         layers.add(AndroidUtil.createTileRendererLayer(this.tileCache,
                 mapViewPosition, getMapFile(),
-                InternalRenderTheme.OSMARENDER, false, true));
-
-
-        MapDataStore mapDataStore =  getMapFile();
-        this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
-                this.mapView.getModel().mapViewPosition, false, true, AndroidGraphicFactory.INSTANCE);
-        tileRendererLayer.setXmlRenderTheme(InternalRenderTheme.OSMARENDER);
-
-        // only once a layer is associated with a mapView the rendering starts
-        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
-        return rootView;
+                getRenderTheme(), false, true));
     }
 
     private void getMyLocation() {
@@ -204,7 +241,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
 
 
     private void setUpMapIfNeeded() {
-        // Do a null check to confirm that we have not already instantiated the map.
+
         /**if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
@@ -287,4 +324,8 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
 
     }
 
+    @Override
+    public Set<String> getCategories(XmlRenderThemeStyleMenu style) {
+        return null;
+    }
 }

@@ -557,6 +557,13 @@
     <string name="zoomin_button">+</string>
     <string name="zoomlevel">Zoom Level</string>
     <string name="zoomout_button">-</string>
+    <!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#3399ff</item>
+        <item name="android:backgroundStacked">#3399ff</item>
+        <item name="android:backgroundSplit">#3399ff</item>
+    </style>
     <!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -567,6 +574,7 @@
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:logo">@android:color/transparent</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
     </style>
     <!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>

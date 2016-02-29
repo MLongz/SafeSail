@@ -196,14 +196,14 @@ public final class R {
 		public static final int monochrome = 0x7f0f0046;
 		public static final int none = 0x7f0f000f;
 		public static final int normal = 0x7f0f000b;
-		public static final int place_autocomplete_clear_button = 0x7f0f00a6;
-		public static final int place_autocomplete_powered_by_google = 0x7f0f00a8;
-		public static final int place_autocomplete_prediction_primary_text = 0x7f0f00aa;
-		public static final int place_autocomplete_prediction_secondary_text = 0x7f0f00ab;
-		public static final int place_autocomplete_progress = 0x7f0f00a9;
-		public static final int place_autocomplete_search_button = 0x7f0f00a4;
-		public static final int place_autocomplete_search_input = 0x7f0f00a5;
-		public static final int place_autocomplete_separator = 0x7f0f00a7;
+		public static final int place_autocomplete_clear_button = 0x7f0f00a8;
+		public static final int place_autocomplete_powered_by_google = 0x7f0f00aa;
+		public static final int place_autocomplete_prediction_primary_text = 0x7f0f00ac;
+		public static final int place_autocomplete_prediction_secondary_text = 0x7f0f00ad;
+		public static final int place_autocomplete_progress = 0x7f0f00ab;
+		public static final int place_autocomplete_search_button = 0x7f0f00a6;
+		public static final int place_autocomplete_search_input = 0x7f0f00a7;
+		public static final int place_autocomplete_separator = 0x7f0f00a9;
 		public static final int production = 0x7f0f0030;
 		public static final int sandbox = 0x7f0f0031;
 		public static final int satellite = 0x7f0f0020;
@@ -220,10 +220,10 @@ public final class R {
 		public static final int google_play_services_version = 0x7f0c0004;
 	}
 	public static final class layout {
-		public static final int place_autocomplete_fragment = 0x7f040033;
-		public static final int place_autocomplete_item_powered_by_google = 0x7f040034;
-		public static final int place_autocomplete_item_prediction = 0x7f040035;
-		public static final int place_autocomplete_progress = 0x7f040036;
+		public static final int place_autocomplete_fragment = 0x7f040032;
+		public static final int place_autocomplete_item_powered_by_google = 0x7f040033;
+		public static final int place_autocomplete_item_prediction = 0x7f040034;
+		public static final int place_autocomplete_progress = 0x7f040035;
 	}
 	public static final class raw {
 		public static final int gtm_analytics = 0x7f070000;
@@ -274,13 +274,13 @@ public final class R {
 		public static final int wallet_buy_button_place_holder = 0x7f08003c;
 	}
 	public static final class style {
-		public static final int Theme_AppInvite_Preview = 0x7f0a00e9;
+		public static final int Theme_AppInvite_Preview = 0x7f0a00ea;
 		public static final int Theme_AppInvite_Preview_Base = 0x7f0a0014;
-		public static final int Theme_IAPTheme = 0x7f0a00ea;
-		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0a00f2;
-		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0a00f3;
-		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0a00f4;
-		public static final int WalletFragmentDefaultStyle = 0x7f0a00f5;
+		public static final int Theme_IAPTheme = 0x7f0a00eb;
+		public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f0a00f3;
+		public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f0a00f4;
+		public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f0a00f5;
+		public static final int WalletFragmentDefaultStyle = 0x7f0a00f6;
 	}
 	public static final class styleable {
 		public static final int[] AdsAttrs = { 0x7f010027, 0x7f010028, 0x7f010029 };
