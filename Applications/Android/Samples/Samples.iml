@@ -141,8 +141,8 @@
     <orderEntry type="library" exported="" name="play-services-measurement-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-8.4.0" level="project" />
     <orderEntry type="module" module-name="mapsforge-map" exported="" />
-    <orderEntry type="module" module-name="mapsforge-core" exported="" />
     <orderEntry type="module" module-name="mapsforge-map-reader" exported="" />
+    <orderEntry type="module" module-name="mapsforge-core" exported="" />
     <orderEntry type="module" module-name="mapsforge-map-android" exported="" />
   </component>
 </module>

@@ -8,7 +8,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.RenderScript;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -16,12 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,16 +37,10 @@ public class MainActivity extends Activity
     boolean varselOpen = false;
     static Button notifCount;
     static int mNotifCount = 0;
-    public static long now = System.currentTimeMillis();
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
 
     @Override
@@ -213,14 +208,15 @@ public class MainActivity extends Activity
         }
     }
 
-    private void getVarsel(int mNotificationId, String melding){
+    private void getVarsel(int mNotificationId, String innmelding){
+        String time = DateFormat.getDateTimeInstance().format(new Date());
+
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
+        String melding = innmelding + "         " + time;
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setSmallIcon(R.drawable.varsel);
         mBuilder.setContentTitle("SafeSail");
-        mBuilder.setWhen(now);
         mBuilder.setContentText(melding);
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setPriority(2);

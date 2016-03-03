@@ -76,8 +76,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="androidsvg-1.2.2-beta-1" level="project" />
     <orderEntry type="library" exported="" name="kxml2-2.3.0" level="project" />
+    <orderEntry type="module" module-name="mapsforge-core" exported="" />
     <orderEntry type="module" module-name="mapsforge-map-reader" exported="" />
     <orderEntry type="module" module-name="mapsforge-map" exported="" />
-    <orderEntry type="module" module-name="mapsforge-core" exported="" />
   </component>
 </module>
