@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:2:1-209:12
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:2:1-207:12
 	xmlns:android
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:2:11-69
 	package
@@ -198,7 +198,7 @@ ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Sam
 	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:22:22-63
 application
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:27:5-46:19
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:27:5-45:19
 MERGED from [org.mapsforge:mapsforge-map-android:master-SNAPSHOT] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\org.mapsforge\mapsforge-map-android\master-SNAPSHOT\AndroidManifest.xml:11:5-47
 MERGED from [com.android.support:support-v4:23.1.1] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\AndroidManifest.xml:22:5-20
@@ -310,12 +310,12 @@ MERGED from [com.android.support:support-v4:23.1.1] D:\Programmer\AndroidProsjec
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:30:9-44
 	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:28:9-43
-activity#org.mapsforge.applications.android.samples.MainActivity
+activity#org.mapsforge.applications.android.samples.Samples
 ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:34:9-42:20
 	android:label
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:36:13-45
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:35:13-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:35:13-36
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:37:13-41:29
 action#android.intent.action.MAIN
@@ -327,17 +327,17 @@ ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Sam
 	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:40:27-74
 activity#org.mapsforge.applications.android.samples.NotificationView
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:48:5-49:43
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:47:5-48:43
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:49:9-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:48:9-41
 activity#org.mapsforge.applications.android.samples.MapsActivity
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:51:5-54:16
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:50:5-53:16
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:53:9-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:52:9-41
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:52:9-37
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:51:9-37
 meta-data#com.google.android.gms.version
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:55:5-57:65
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:54:5-56:65
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
@@ -369,285 +369,285 @@ MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:56:9-54
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:55:9-54
 	android:value
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:57:9-62
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:56:9-62
 meta-data#com.google.android.maps.v2.API_KEY
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:58:5-60:51
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:57:5-59:51
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:59:9-58
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:58:9-58
 	android:value
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:60:9-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:59:9-48
 activity#org.mapsforge.applications.android.samples.TestView
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:63:5-65:43
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:61:9-63:43
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:65:13-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:63:13-41
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:64:13-37
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:62:13-37
 activity#org.mapsforge.applications.android.samples.BasicMapViewerV3
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:66:9-69:84
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:64:9-67:84
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:69:13-81
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:67:13-81
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:68:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:66:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:67:13-45
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:65:13-45
 activity#org.mapsforge.applications.android.samples.LabelLayerMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:70:9-73:62
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:68:9-71:62
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:73:13-59
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:71:13-59
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:72:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:70:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:71:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:69:13-48
 activity#org.mapsforge.applications.android.samples.NoXMLLayout
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:74:9-77:61
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:72:9-75:61
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:77:13-58
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:75:13-58
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:76:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:74:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:75:13-40
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:73:13-40
 activity#org.mapsforge.applications.android.samples.SimplestMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:78:9-81:51
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:76:9-79:51
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:81:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:79:13-48
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:80:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:78:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:79:13-46
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:77:13-46
 activity#org.mapsforge.applications.android.samples.DownloadLayerViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:82:9-85:51
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:80:9-83:51
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:85:13-48
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:84:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:83:13-48
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:82:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:81:13-48
 activity#org.mapsforge.applications.android.samples.TileStoreLayerViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:86:9-89:49
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:84:9-87:49
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:89:13-46
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:87:13-46
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:88:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:86:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:87:13-49
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:85:13-49
 activity#org.mapsforge.applications.android.samples.DownloadCustomLayerViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:90:9-93:57
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:88:9-91:57
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:93:13-54
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:92:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:91:13-54
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:90:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:89:13-54
 activity#org.mapsforge.applications.android.samples.DiagnosticsMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:94:9-97:52
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:92:9-95:52
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:97:13-49
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:96:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:95:13-49
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:94:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:93:13-49
 activity#org.mapsforge.applications.android.samples.RenderTheme4
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:98:9-101:46
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:96:9-99:46
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:101:13-43
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:99:13-43
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:100:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:98:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:99:13-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:97:13-41
 activity#org.mapsforge.applications.android.samples.TwoMaps
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:102:9-105:49
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:100:9-103:49
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:105:13-46
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:103:13-46
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:104:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:102:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:103:13-36
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:101:13-36
 activity#org.mapsforge.applications.android.samples.RenderThemeChanger
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:106:9-109:84
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:104:9-107:84
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:109:13-81
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:107:13-81
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:108:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:106:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:107:13-47
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:105:13-47
 activity#org.mapsforge.applications.android.samples.TileSizeChanger
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:110:9-113:64
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:108:9-111:64
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:113:13-61
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:111:13-61
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:112:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:110:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:111:13-44
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:109:13-44
 activity#org.mapsforge.applications.android.samples.OverlayMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:114:9-117:48
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:112:9-115:48
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:117:13-45
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:116:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:115:13-45
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:114:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:113:13-45
 activity#org.mapsforge.applications.android.samples.GridMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:118:9-121:49
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:116:9-119:49
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:121:13-46
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:119:13-46
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:120:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:118:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:119:13-42
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:117:13-42
 activity#org.mapsforge.applications.android.samples.ZoomToBounds
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:122:9-125:62
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:120:9-123:62
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:125:13-59
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:123:13-59
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:124:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:122:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:123:13-41
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:121:13-41
 activity#org.mapsforge.applications.android.samples.OverlayWithoutBaseMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:126:9-129:59
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:124:9-127:59
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:129:13-56
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:128:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:127:13-56
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:126:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:125:13-56
 activity#org.mapsforge.applications.android.samples.LongPressAction
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:130:9-133:73
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:128:9-131:73
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:133:13-70
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:131:13-70
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:132:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:130:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:131:13-44
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:129:13-44
 activity#org.mapsforge.applications.android.samples.MoveAnimation
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:134:9-137:70
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:132:9-135:70
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:137:13-67
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:135:13-67
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:136:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:134:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:135:13-42
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:133:13-42
 activity#org.mapsforge.applications.android.samples.ChangingBitmaps
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:138:9-141:60
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:136:9-139:60
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:141:13-57
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:139:13-57
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:140:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:138:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:139:13-44
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:137:13-44
 activity#org.mapsforge.applications.android.samples.LocationOverlayMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:142:9-145:56
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:140:9-143:56
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:145:13-53
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:144:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:143:13-53
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:142:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:141:13-53
 activity#org.mapsforge.applications.android.samples.BubbleOverlay
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:146:9-149:51
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:144:9-147:51
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:149:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:147:13-48
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:148:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:146:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:147:13-42
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:145:13-42
 activity#org.mapsforge.applications.android.samples.DualMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:150:9-153:45
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:148:9-151:45
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:153:13-42
-	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:152:13-74
-	android:name
 		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:151:13-42
+	android:configChanges
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:150:13-74
+	android:name
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:149:13-42
 activity#org.mapsforge.applications.android.samples.DualMapViewerWithDifferentDisplayModels
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:154:9-157:70
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:152:9-155:70
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:157:13-67
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:155:13-67
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:156:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:154:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:155:13-68
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:153:13-68
 activity#org.mapsforge.applications.android.samples.DualMapViewerWithClampedTileSizes
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:158:9-161:70
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:156:9-159:70
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:161:13-67
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:159:13-67
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:160:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:158:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:159:13-62
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:157:13-62
 activity#org.mapsforge.applications.android.samples.DualMapnikMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:162:9-165:48
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:160:9-163:48
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:165:13-45
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:163:13-45
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:164:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:162:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:163:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:161:13-48
 activity#org.mapsforge.applications.android.samples.DualOverviewMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:166:9-169:82
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:164:9-167:82
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:169:13-79
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:167:13-79
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:168:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:166:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:167:13-50
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:165:13-50
 activity#org.mapsforge.applications.android.samples.MultiMapLowResWorld
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:170:9-173:56
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:168:9-171:56
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:173:13-53
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:171:13-53
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:172:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:170:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:171:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:169:13-48
 activity#org.mapsforge.applications.android.samples.StackedLayersMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:174:9-177:71
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:172:9-175:71
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:177:13-68
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:175:13-68
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:176:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:174:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:175:13-51
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:173:13-51
 activity#org.mapsforge.applications.android.samples.RotateMapViewer
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:178:9-181:55
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:176:9-179:55
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:181:13-52
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:179:13-52
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:180:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:178:13-74
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:179:13-44
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:177:13-44
 activity#org.mapsforge.applications.android.samples.ItemListActivity
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:182:9-189:20
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:180:9-187:20
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:184:13-48
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:182:13-48
 	android:parentActivityName
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:185:13-50
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:183:13-50
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:183:13-45
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:181:13-45
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:186:13-188:86
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:184:13-186:86
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:187:17-63
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:185:17-63
 	android:value
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:188:17-83
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:186:17-83
 activity#org.mapsforge.applications.android.samples.ItemDetailActivity
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:190:9-198:20
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:188:9-196:20
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:193:13-51
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:191:13-51
 	android:configChanges
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:192:13-74
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:190:13-74
 	android:parentActivityName
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:194:13-59
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:192:13-59
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:191:13-47
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:189:13-47
 activity#org.mapsforge.applications.android.samples.Settings
-ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:199:9-206:20
+ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:197:9-204:20
 	android:label
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:201:13-37
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:199:13-37
 	android:parentActivityName
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:202:13-50
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:200:13-50
 	android:name
-		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:200:13-37
+		ADDED from D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\AndroidManifest.xml:198:13-37
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-ads:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-analytics:8.4.0] D:\Programmer\AndroidProsject\gruppe1-mapapp\Applications\Android\Samples\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\AndroidManifest.xml:22:5-79

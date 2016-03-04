@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,182 +34,77 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.mapsforge.core.model.LatLong;
+import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
+import org.mapsforge.map.android.util.AndroidUtil;
+import org.mapsforge.map.android.view.MapView;
+import org.mapsforge.map.layer.cache.TileCache;
+import org.mapsforge.map.layer.renderer.TileRendererLayer;
+import org.mapsforge.map.reader.MapDataStore;
+import org.mapsforge.map.reader.MapFile;
+import org.mapsforge.map.rendertheme.InternalRenderTheme;
+
+import java.io.File;
+
 /**
  * Start screen for the sample activities.
  */
 public class Samples extends Activity {
+	// name of the map file in the external storage
+	private static final String MAPFILE = "germany.map";
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.options_menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent intent;
-		switch (item.getItemId()) {
-			case R.id.menu_preferences:
-				intent = new Intent(this, Settings.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-				startActivity(intent);
-				return true;
-		}
-		return false;
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		final SharedPreferences preferences = getSharedPreferences("installation", Activity.MODE_PRIVATE);
-		final String accepted = "accepted";
-		if (!preferences.getBoolean(accepted, false)) {
-			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("Warning");
-			builder.setCancelable(true);
-			builder.setPositiveButton(R.string.startup_dontshowagain,
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							preferences.edit().putBoolean(accepted, true)
-									.commit();
-						}
-					});
-			builder.setMessage(R.string.startup_message);
-			builder.create().show();
-		}
-	}
+	private MapView mapView;
+	private TileCache tileCache;
+	private TileRendererLayer tileRendererLayer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_samples);
-		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.samples);
-		linearLayout.addView(createButton(RenderTheme4.class, "Map Viewer Rendertheme V4", null));
+		AndroidGraphicFactory.createInstance(this.getApplication());
 
-		linearLayout.addView(createButton(DiagnosticsMapViewer.class, "Diagnostics", null));
+		this.mapView = new MapView(this);
+		setContentView(this.mapView);
 
-		linearLayout.addView(createButton(SimplestMapViewer.class, "Simplest Map Viewer", null));
+		this.mapView.setClickable(true);
+		this.mapView.getMapScaleBar().setVisible(true);
+		this.mapView.setBuiltInZoomControls(true);
+		this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
+		this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
 
-		linearLayout.addView(createLabel("Raster Maps"));
-		linearLayout.addView(createButton(DownloadLayerViewer.class,
-				"Downloading Mapnik", null));
-		linearLayout.addView(createButton(DownloadCustomLayerViewer.class,
-				"Custom Tile Source", null));
-		linearLayout.addView(createButton(TileStoreLayerViewer.class,
-				"Tile Store (TMS)", null));
+		// create a tile cache of suitable size
+		this.tileCache = AndroidUtil.createTileCache(this, "mapcache",
+				mapView.getModel().displayModel.getTileSize(), 1f,
+				this.mapView.getModel().frameBufferModel.getOverdrawFactor());
+	}
 
-		linearLayout.addView(createLabel("Overlays"));
-		linearLayout.addView(createButton(OverlayMapViewer.class, "Overlay", null));
-		linearLayout.addView(createButton(GridMapViewer.class, "Geographical Grid", null));
-		linearLayout
-				.addView(createButton(BubbleOverlay.class, "Bubble Overlay", null));
-		linearLayout.addView(createButton(LocationOverlayMapViewer.class, "Location Overlay", null));
-		linearLayout.addView(createButton(ChangingBitmaps.class,
-				"Changing bitmaps", null));
-		linearLayout.addView(createButton(OverlayWithoutBaseMapViewer.class,
-				"Just Overlays, No Map", null));
-		linearLayout.addView(createButton(TwoMaps.class, "Two Maps Overlaid", null));
+	@Override
+	protected void onStart() {
+		super.onStart();
 
+		this.mapView.getModel().mapViewPosition.setCenter(new LatLong(52.517037, 13.38886));
+		this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 12);
 
+		// tile renderer layer using internal render theme
+		MapDataStore mapDataStore = new MapFile(getMapFile());
+		this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
+				this.mapView.getModel().mapViewPosition, false, true, AndroidGraphicFactory.INSTANCE);
+		tileRendererLayer.setXmlRenderTheme(InternalRenderTheme.OSMARENDER);
 
-		linearLayout.addView(createLabel("User Interaction"));
-		linearLayout.addView(createButton(LongPressAction.class,
-				"Long Press Action", null));
-		linearLayout
-				.addView(createButton(MoveAnimation.class, "Move Animation", null));
-		linearLayout
-				.addView(createButton(ZoomToBounds.class, "Zoom to Bounds", null));
-		linearLayout.addView(createButton(ItemListActivity.class,
-				"Fragment List/View", null));
-
-		linearLayout.addView(createLabel("Dual Map Views"));
-		linearLayout.addView(createButton(DualMapViewer.class, "Dual Maps", null));
-		linearLayout.addView(createButton(
-				DualMapViewerWithDifferentDisplayModels.class,
-				"Different DisplayModels", null));
-		linearLayout.addView(createButton(DualMapViewerWithClampedTileSizes.class,
-				"Clamped Tile Sizes", null));
-		linearLayout.addView(createButton(DualMapnikMapViewer.class,
-				"Tied Maps", null));
-		linearLayout.addView(createButton(DualOverviewMapViewer.class,
-				"Overview Map", null));
-		linearLayout.addView(createButton(MultiMapLowResWorld.class,
-				"Low res world background",
-				new OnClickListener() {
-					@Override
-					public void onClick(final View v) {
-						if (!MultiMapLowResWorld.getWorldMapFile(Samples.this).exists()) {
-							final AlertDialog.Builder builder = new AlertDialog.Builder(Samples.this);
-							builder.setTitle("Warning");
-							builder.setCancelable(true);
-							builder.setPositiveButton(R.string.downloadnowbutton,
-									new DialogInterface.OnClickListener() {
-										public void onClick(DialogInterface dialog, int which) {
-											// TODO show progress and wait for download
-											DownloadManager downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-											DownloadManager.Request downloadRequest = new DownloadManager.Request(
-													Uri.parse("http://download.mapsforge.org/maps/world/world.map"));
-											downloadRequest.setDescription("Mapsforge low-res world map");
-											downloadRequest.setDestinationInExternalFilesDir(Samples.this, SamplesApplication.MAPS, MultiMapLowResWorld.getWorldMapFileName());
-											downloadRequest.setVisibleInDownloadsUi(true);
-											downloadManager.enqueue(downloadRequest);
-										}
-									});
-							builder.setMessage(R.string.startup_message_multimap);
-							builder.create().show();
-						} else {
-							startActivity(new Intent(Samples.this, MultiMapLowResWorld.class));
-						}
-					}
-				}
-
-		));
-
-		linearLayout.addView(createLabel("Experiments"));
-		linearLayout.addView(createButton(RenderThemeChanger.class,
-				"Changing Renderthemes", null));
-		linearLayout.addView(createButton(TileSizeChanger.class,
-				"Changing Tile Size", null));
-		linearLayout.addView(createButton(RotateMapViewer.class, "Map Rotation (external)", null));
-		linearLayout.addView(createButton(StackedLayersMapViewer.class,
-				"Stacked Tiles", null));
-		linearLayout.addView(createButton(NoXMLLayout.class, "Without XML Layout", null));
-		linearLayout.addView(createButton(BasicMapViewerV3.class, "Old Osmarender (deprecated)", null));
-
-		linearLayout.addView(createButton(LabelLayerMapViewer.class, "Separate LabelLayer (alpha)", null));
+		// only once a layer is associated with a mapView the rendering starts
+		this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
 	}
 
-	private Button createButton(final Class<?> clazz, String text, final OnClickListener customListener) {
-		Button button = new Button(this);
-		if (text == null) {
-			button.setText(clazz.getSimpleName());
-		} else {
-			button.setText(text);
-		}
-		if (customListener == null) {
-			button.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					startActivity(new Intent(Samples.this, clazz));
-				}
-			});
-		} else {
-			button.setOnClickListener(customListener);
-		}
-		return button;
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		this.mapView.destroyAll();
 	}
 
-	private TextView createLabel(String text) {
-		TextView textView = new TextView(this);
-		textView.setGravity(Gravity.CENTER);
-		if (text == null) {
-			textView.setText("---------------");
-		} else {
-			textView.setText(text);
-		}
-		return textView;
+	private File getMapFile() {
+		File file = new File(Environment.getExternalStorageDirectory(), MAPFILE);
+		return file;
 	}
 
 }

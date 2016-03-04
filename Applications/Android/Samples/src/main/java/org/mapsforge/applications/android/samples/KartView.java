@@ -26,9 +26,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
@@ -66,7 +63,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     private MapView mapView;
     private TileCache tileCache;
     private TileRendererLayer tileRendererLayer;
-
+    private LatLong myLocationNow;
 
 
     private ImageView imageCompass;
@@ -93,6 +90,11 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         getMyLocation();
 
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
+        imageCompass.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                setCenter(myLocationNow);
+            }
+        });
         this.tvHeading = (TextView) rootView.findViewById(R.id.tvHeading);
 
         this.mapView = (MapView) rootView.findViewById(R.id.mapView);
@@ -109,41 +111,41 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         return rootView;
     }
 
-
+/** Bruker AssesRendertheme klassen til å hente en rendertheme, returnerer null dersom det er feil */
     public XmlRenderTheme getRenderTheme() {
         try {
             return new AssetsRenderTheme(this.getActivity(), getRenderThemePrefix(), getRenderThemeFile(), this);
         } catch (IOException e) {
             Log.e(SamplesApplication.TAG, "Render theme failure " + e.toString());
         }
-        System.out.println("Feil shit");
-        return InternalRenderTheme.OSMARENDER;
+        return null;
     }
 
     public String getRenderThemePrefix() {
         return "";
     }
 
-
+/** Henter rendertheme fila */
     public String getRenderThemeFile() {
         return "renderthemes/rendertheme-v4.xml";
     }
 
+    /** Laqger layer ved bruk av en render theme, tegner opp kartet*/
     private void createLayer() {
-        MapDataStore mapDataStore =  getMapFile();
-        /**this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
+        MapDataStore mapDataStore = new MapFile(getMapFile());
+        this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
                 this.mapView.getModel().mapViewPosition, false, true, AndroidGraphicFactory.INSTANCE);
         tileRendererLayer.setXmlRenderTheme(getRenderTheme());
-        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);*/
-
-        this.tileRendererLayer = AndroidUtil.createTileRendererLayer(tileCache,
-                mapView.getModel().mapViewPosition, mapDataStore, getRenderTheme(), false, true);
-        tileRendererLayer.setXmlRenderTheme(getRenderTheme());
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
+
+        /**this.tileRendererLayer = AndroidUtil.createTileRendererLayer(tileCache,
+                mapView.getModel().mapViewPosition, getMapFile(), getRenderTheme(), false, true);
+        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);*/
     }
 
+    /** Lager en tilecatch som lagrer layers så vi slipper å tegne den på nytt*/
     private void creatTileCache() {
-        LayerManager layerManager = this.mapView.getLayerManager();
+        /**LayerManager layerManager = this.mapView.getLayerManager();
         Layers layers = layerManager.getLayers();
 
         MapViewPosition mapViewPosition = this.mapView.getModel().mapViewPosition;
@@ -155,8 +157,13 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
                 1.5);
         layers.add(AndroidUtil.createTileRendererLayer(this.tileCache,
                 mapViewPosition, getMapFile(),
-                getRenderTheme(), false, true));
+                getRenderTheme(), false, true));*/
+
+        this.tileCache = AndroidUtil.createTileCache(this.getActivity(), "mapcache",
+                mapView.getModel().displayModel.getTileSize(), 1f,
+                this.mapView.getModel().frameBufferModel.getOverdrawFactor());
     }
+
 
     private void getMyLocation() {
         // getlocation
@@ -172,10 +179,10 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
                 .setFastestInterval(1 * 1000); // 1 second, in milliseconds
     }
 
-
-    public MapFile getMapFile() {
-        return new MapFile(new File(Environment.getExternalStorageDirectory(),
-                this.getMapFileName()));
+    /** Henter mapfila i SD kortet*/
+    public File getMapFile() {
+        File file = new File(Environment.getExternalStorageDirectory(), getMapFileName());
+        return file;
     }
 
     protected String getMapFileName() {
@@ -253,10 +260,6 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         }*/
     }
 
-    private void setUpMap() {
-        /** mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker")); */
-
-    }
 
     @Override
     public void onConnected(Bundle bundle) {
@@ -279,6 +282,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         tvHeading.setText(latLng.toString());
         drawMarker(latLng);
         setCenter(latLng);
+        myLocationNow = latLng;
 
     }
 

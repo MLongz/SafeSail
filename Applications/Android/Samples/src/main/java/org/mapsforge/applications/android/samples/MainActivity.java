@@ -19,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,24 +48,26 @@ public class MainActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AndroidGraphicFactory.createInstance(this.getApplication());
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = "SafeSail";
 
-        // Set up the drawer.
+        //Setter opp navigasjon menyen
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
          nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-
+        //Setter opp notifikasjon lista og arraList og adapter for å legge inn data dynamisk
         varselListView = (ListView) findViewById(R.id.notification_list_view);
         varselList = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, varselList);
         varselListView.setAdapter(adapter);
 
+        //Kjører en test varsel
         getVarsel(1, "Death incoming");
     }
 
@@ -83,29 +87,22 @@ public class MainActivity extends Activity
          objFragment = new Instillinger();
          break;
          }
-         // update the main content by replacing fragments
+         // Fragmenter som skal vises ved onclick skal settes her.
          FragmentManager fragmentManager = getFragmentManager();
          fragmentManager.beginTransaction()
          .replace(R.id.container, objFragment)
          .commit();
          }
-        /**
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
-    }*/
 
     public void onSectionAttached(int number) {
-
+    //Metoder som skal utføres ved onclick skal settes her
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
-                startActivity(new Intent(MainActivity.this, LongPressAction.class));
+                startActivity(new Intent(MainActivity.this, testMain.class));
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
@@ -123,7 +120,7 @@ public class MainActivity extends Activity
         actionBar.setTitle(mTitle);
 }
 
-
+    /** Lager varsel icon og en button som kan åpne varsel lista*/
     @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.main, menu);
@@ -149,6 +146,7 @@ public class MainActivity extends Activity
         }
 
     private void setNotifCount(int count){
+        //En teller for varsel
         mNotifCount = +count;
         invalidateOptionsMenu();
     }
@@ -207,7 +205,7 @@ public class MainActivity extends Activity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
+    /** Her blir varsel laget. Alt av icon, lyd osv kan gjøres her*/
     private void getVarsel(int mNotificationId, String innmelding){
         String time = DateFormat.getDateTimeInstance().format(new Date());
 

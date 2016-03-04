@@ -139,6 +139,10 @@
 
 	</stylemenu>
 
+	<rule e="way" k="AREAL" v="*">
+		<line stroke="#FF00F2"/>
+	</rule>
+
 	<rule e="way" k="dybdeareal" v="*">
 		<area fill="#B3DDFF"/>
 	</rule>
