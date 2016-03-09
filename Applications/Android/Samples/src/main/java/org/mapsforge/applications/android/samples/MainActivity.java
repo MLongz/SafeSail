@@ -102,7 +102,7 @@ public class MainActivity extends Activity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
-                startActivity(new Intent(MainActivity.this, testMain.class));
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);

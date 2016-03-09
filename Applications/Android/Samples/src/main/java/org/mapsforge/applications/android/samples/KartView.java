@@ -32,26 +32,19 @@ import org.mapsforge.core.model.LatLong;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
 import org.mapsforge.map.android.rendertheme.AssetsRenderTheme;
 import org.mapsforge.map.android.util.AndroidUtil;
-import org.mapsforge.map.layer.Layer;
-import org.mapsforge.map.layer.LayerManager;
-import org.mapsforge.map.layer.Layers;
-import org.mapsforge.map.layer.cache.TileCache;
+import org.mapsforge.map.layer.Layer;import org.mapsforge.map.layer.cache.TileCache;
 import org.mapsforge.map.layer.overlay.Marker;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
-import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.reader.MapDataStore;
 import org.mapsforge.map.reader.MapFile;
-import org.mapsforge.map.rendertheme.InternalRenderTheme;
 import org.mapsforge.map.android.view.MapView;
 import org.mapsforge.map.rendertheme.XmlRenderTheme;
 import org.mapsforge.map.rendertheme.XmlRenderThemeMenuCallback;
-import org.mapsforge.map.rendertheme.XmlRenderThemeStyleLayer;
 import org.mapsforge.map.rendertheme.XmlRenderThemeStyleMenu;
 
 
 import java.io.File;
 import java.io.IOException;
-import java.net.ConnectException;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -138,26 +131,10 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         tileRendererLayer.setXmlRenderTheme(getRenderTheme());
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
-        /**this.tileRendererLayer = AndroidUtil.createTileRendererLayer(tileCache,
-                mapView.getModel().mapViewPosition, getMapFile(), getRenderTheme(), false, true);
-        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);*/
     }
 
     /** Lager en tilecatch som lagrer layers så vi slipper å tegne den på nytt*/
     private void creatTileCache() {
-        /**LayerManager layerManager = this.mapView.getLayerManager();
-        Layers layers = layerManager.getLayers();
-
-        MapViewPosition mapViewPosition = this.mapView.getModel().mapViewPosition;
-        mapViewPosition.setZoomLevel((byte) 16);
-
-        tileCache = AndroidUtil.createTileCache(this.getActivity(),
-                "fragments",
-                this.mapView.getModel().displayModel.getTileSize(), 1.0f,
-                1.5);
-        layers.add(AndroidUtil.createTileRendererLayer(this.tileCache,
-                mapViewPosition, getMapFile(),
-                getRenderTheme(), false, true));*/
 
         this.tileCache = AndroidUtil.createTileCache(this.getActivity(), "mapcache",
                 mapView.getModel().displayModel.getTileSize(), 1f,
@@ -186,7 +163,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     }
 
     protected String getMapFileName() {
-        return "germany.map";
+        return "testing.map";
     }
 
     @Override

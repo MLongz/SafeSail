@@ -11,15 +11,18 @@
  *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
- */
+ *//*
+
 package org.mapsforge.applications.android.samples;
 
 import org.mapsforge.core.model.LatLong;
 
+*/
 /**
  * Demonstrates the animateTo function in MapViewPosition: long press a point on
  * the map and it will move in steps to that position.
- */
+ *//*
+
 
 public class MoveAnimation extends LongPressAction {
 
@@ -28,3 +31,4 @@ public class MoveAnimation extends LongPressAction {
 	}
 
 }
+*/

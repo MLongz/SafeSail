@@ -196,7 +196,7 @@
         android:label="Mapsforge Samples"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="org.mapsforge.applications.android.samples.Samples"
+            android:name="org.mapsforge.applications.android.samples.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

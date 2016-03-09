@@ -4,8 +4,6 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
 
-import org.mapsforge.applications.android.samples.RenderTheme4;
-
 public class RenderThemeV4Test extends ActivityInstrumentationTestCase2<RenderTheme4> {
 
 	Solo solo;

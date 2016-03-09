@@ -4,8 +4,6 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
 
-import org.mapsforge.applications.android.samples.DualMapViewerWithDifferentDisplayModels;
-
 public class DisplayModelTest extends ActivityInstrumentationTestCase2<DualMapViewerWithDifferentDisplayModels> {
 
 	Solo solo;

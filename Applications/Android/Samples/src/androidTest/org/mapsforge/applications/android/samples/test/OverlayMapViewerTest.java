@@ -1,7 +1,5 @@
 package org.mapsforge.applications.android.samples.test;
 
-import org.mapsforge.applications.android.samples.OverlayMapViewer;
-
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
