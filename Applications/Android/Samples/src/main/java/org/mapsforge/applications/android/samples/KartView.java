@@ -58,18 +58,24 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     private TileRendererLayer tileRendererLayer;
     private LatLong myLocationNow;
 
-
+    private TextView txttest;
     private ImageView imageCompass;
     private float currentDegree = 0f;
     private SensorManager mSensorManager;
-    TextView tvHeading;
+    float[] mGravity;
+    float[] mGeomagnetic;
+    float azimut;
+    Sensor accelerometer;
+    Sensor magnetometer;
 
     private MapView mMap = mapView; // Might be null if Google Play services APK is not available.
     private GoogleApiClient mGoogleApiClient;
     public static final String TAG = KartView.class.getSimpleName();
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private LocationRequest mLocationRequest;
-    Bitmap bitmapRed;
+    Bitmap bitmapArrow;
+    Rotating orintationArrow;
+    float azimutRotation;
     private HashMap<String, Layer> mLayers = new HashMap<String, Layer>();
 
     public KartView() {
@@ -81,15 +87,13 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
         getMyLocation();
-
+        this.txttest = (TextView) rootView.findViewById(R.id.tvHeading);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
-        imageCompass.setOnClickListener(new View.OnClickListener(){
+        imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setCenter(myLocationNow);
             }
         });
-        this.tvHeading = (TextView) rootView.findViewById(R.id.tvHeading);
-
         this.mapView = (MapView) rootView.findViewById(R.id.mapView);
         this.mapView.getMapScaleBar().setVisible(true);
 
@@ -97,6 +101,10 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         this.mapView.setBuiltInZoomControls(false);
         this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
         this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
+
+        mSensorManager = (SensorManager)this.getActivity().getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        magnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         creatTileCache();
         createLayer();
@@ -163,7 +171,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     }
 
     protected String getMapFileName() {
-        return "testing.map";
+        return "germany.map";
     }
 
     @Override
@@ -180,8 +188,8 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     @Override
     public void onResume(){
         super.onResume();
-        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-                SensorManager.SENSOR_DELAY_GAME);
+        mSensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
+        mSensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_UI);
 
         setUpMapIfNeeded();
         mGoogleApiClient.connect();
@@ -200,26 +208,50 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        float degree = Math.round(event.values[0]);
-        /**tvHeading.setText(Float.toString(degree) + "°");*/
+        //Henter akselormenter og magnetiske målinger ved hjelpe av interne sensorer
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
+            mGravity = event.values;
+        if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD)
+            mGeomagnetic = event.values;
+        if (mGravity != null && mGeomagnetic != null) {
+            float R[] = new float[9];
+            float I[] = new float[9];
+            boolean success = SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic);
+            if (success) {//Dersom det lykkes så kjører funksjonen getOrientation for å hente mobilen sin orientering
+                float orientation[] = new float[3];
+                SensorManager.getOrientation(R, orientation);
+                azimut = orientation[0]; // orientation inneholder: azimut, pitch og roll. Det er vinkelen langs horisonten i horisontalkoordinater
+            }
+        }
 
+        azimutRotation = -azimut * 360 / (2 * 3.14159f);//gjør om azimut til grader så den peker mot nord
         RotateAnimation ra = new RotateAnimation(
                 currentDegree,
-                - degree,
+                - azimutRotation,
                 Animation.RELATIVE_TO_SELF, 0.5F,
                 Animation.RELATIVE_TO_SELF, 0.5F);
 
         ra.setDuration(210);
         ra.setFillAfter(true);
-
+        txttest.setText(String.valueOf(azimutRotation));
         imageCompass.startAnimation(ra);
-        currentDegree = -degree;
+        currentDegree = azimutRotation;
+
+        if(bitmapArrow != null){//Sjekker om bitmappen er tegnet, dersom ja, kjør rotering
+            float r = - azimutRotation;
+            orintationArrow.setRotation(r);
+            mapView.getLayerManager().redrawLayers();
+        }
+
+
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+
 
     /** --------------------------------------------------------------- */
 
@@ -251,15 +283,14 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
 
 
     private void handleNewLocation(Location location) {
-        Log.d(TAG, location.toString());
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLong latLng = new LatLong(currentLatitude, currentLongitude);
 
-        tvHeading.setText(latLng.toString());
         drawMarker(latLng);
         setCenter(latLng);
         myLocationNow = latLng;
+
 
     }
 
@@ -269,14 +300,20 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
     }
 
     private void drawMarker(LatLong latLng){
-        Drawable drawableRed = getResources()
-                .getDrawable(R.drawable.marker_red);
-        bitmapRed = AndroidGraphicFactory.convertToBitmap(drawableRed);
+        Drawable drawablearrow = getResources()
+                .getDrawable(R.drawable.navarrow);
+
+        bitmapArrow = AndroidGraphicFactory.convertToBitmap(drawablearrow);
+        bitmapArrow.scaleTo(75, 75);
         /** Tegner en marker */
-        Marker m = new Marker(latLng, bitmapRed, 0, 0);
+
+
+        Rotating m = new Rotating(latLng, bitmapArrow, 0, 0, azimutRotation);
+        orintationArrow = m;
         mapView.getLayerManager().getLayers().add(m);
         mLayers.put(Integer.toString(m.hashCode()), m);
         mapView.getLayerManager().redrawLayers();
+
     }
 
 
@@ -304,6 +341,7 @@ public class KartView extends Fragment implements SensorEventListener, GoogleApi
         handleNewLocation(location);
 
     }
+
 
     @Override
     public Set<String> getCategories(XmlRenderThemeStyleMenu style) {
