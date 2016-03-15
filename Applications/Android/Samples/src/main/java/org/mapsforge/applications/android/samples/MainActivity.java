@@ -68,7 +68,7 @@ public class MainActivity extends Activity
         varselListView.setAdapter(adapter);
 
         //Kjører en test varsel
-        getVarsel(1, "Death incoming");
+//        getVarsel(1, "Death incoming");
     }
 
     @Override
@@ -109,6 +109,7 @@ public class MainActivity extends Activity
                 break;
             case 4:
                 mTitle = getString(R.string.action_settings);
+                startActivity(new Intent(MainActivity.this, Instillinger.class));
                 break;
         }
     }
