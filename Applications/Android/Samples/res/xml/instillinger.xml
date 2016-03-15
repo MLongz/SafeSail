@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/instillinger_title">
+<PreferenceCategory
+    android:title="@string/instillinger_title">
+    <CheckBoxPreference
+        android:key="pref"
+        android:title="Er Long dum?"
+        android:summary="Er Long en dum liten gutt?"
+        android:defaultValue="true"/>
+</PreferenceCategory>
+</PreferenceScreen>
