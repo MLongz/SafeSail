@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="morn">
+    android:title="">
 <PreferenceCategory
-    android:title="morn">
+    android:title="">
     <CheckBoxPreference
         android:key="pref"
         android:title="Er Long dum?"
