@@ -1,5 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <eat-comment/>
+    <string-array name="ankring_forbudt">
+        <item name="icon">@drawable/ankringforbudt</item>
+        <item name="type">Ankring forbudt</item>
+        <item name="name">Forbudsskilt</item>
+        <item name="description">Anvendelse: Angir at ankring er forbudt.</item>
+    </string-array>
+    <string-array name="annen_fare">
+        <item name="icon">@drawable/annenfare</item>
+        <item name="type">Annen fare</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir en fare som det ikke finnes eget skilt for. Farens
+                art skal angis på underskilt.</item>
+    </string-array>
+    <string-array name="anropskanalvhf">
+        <item name="icon">@drawable/anropskanalvhf</item>
+        <item name="type">Anropskanal VHF</item>
+        <item name="name">Opplysningsskilt</item>
+        <item name="description">Anvendelse: Angir anropskanal som skal brukes for å kontakte havn
+                eller lignende.</item>
+    </string-array>
+    <string-array name="beste_punkt_for_passering">
+        <item name="icon">@drawable/bestepunktforpassering</item>
+        <item name="type">Beste punkt for passering</item>
+        <item name="name">Markeringsskilt</item>
+        <item name="description">Anvendelse: Angir beste punkt for passering under bru.</item>
+    </string-array>
+    <string-array name="bevegelig_bru">
+        <item name="icon">@drawable/bevegeligbru</item>
+        <item name="type">Bevegelig bru</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir alle typer bevegelig bru, for eksempel klaffebru og
+                svingbru.</item>
+    </string-array>
+    <string-array name="dato">
+        <item name="icon">@drawable/dato</item>
+        <item name="type">Dato</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir dato for når hovedskiltet gjelder.</item>
+    </string-array>
+    <string-array name="dykking_forbudt">
+        <item name="icon">@drawable/dykkingforbudt</item>
+        <item name="type">Dykking forbudt</item>
+        <item name="name">Forbudsskilt</item>
+        <item name="description">Anvendelse: Angir at dykking er forbudt. Forbud kan være gitt ved
+                ordensforskrift eller lignende.</item>
+    </string-array>
+    <string-array name="fartsgrense">
+        <item name="icon">@drawable/fartsgrense</item>
+        <item name="type">Fartsgrense</item>
+        <item name="name">Forbudsskilt</item>
+        <item name="description">Anvendelse: Angir høyeste tillatte fart (for eksempel 5 knop).</item>
+    </string-array>
+    <string-array name="fartsgrense_opphører">
+        <item name="icon">@drawable/fartsgrenseopphorer</item>
+        <item name="type">Fartsgrense opphører</item>
+        <item name="name">Forbudsskilt</item>
+        <item name="description">Anvendelse: Angir at fartsgrense opphører.</item>
+    </string-array>
+    <string-array name="fartøy_større_enn_bt">
+        <item name="icon">@drawable/fortoyningstorre</item>
+        <item name="type">Fartøy større enn ... BT</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir størrelsen i bruttotonn (BT) på fartøy hovedskiltet
+                gjelder for.</item>
+    </string-array>
+    <string-array name="horisontal_klaring">
+        <item name="icon">@drawable/horisontalklaring</item>
+        <item name="type">Horisontal klaring</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir horisontal klaring i en farledsinnsnevring, utdypet
+                renne eller lignende.</item>
+    </string-array>
+    <string-array name="kabel_rørledning_vannledning">
+        <item name="icon">@drawable/kabelrorledningvannledningavlopsledning</item>
+        <item name="type">Kabel, rørledning, vannledning, avløpsledning</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir at hovedskiltet gjelder kabel, rørledning eller
+                lignende sjøledning.</item>
+    </string-array>
+    <string-array name="kabelferge">
+        <item name="icon">@drawable/kabelferge</item>
+        <item name="type">Kabelferge</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir kabelstyrt eller kabeldrevet ferge.</item>
+    </string-array>
+    <string-array name="lav_bru">
+        <item name="icon">@drawable/lavbru</item>
+        <item name="type">Lav bru</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir at hovedskiltet gjelder lav bru.</item>
+    </string-array>
+    <string-array name="livsfarlig_ledning">
+        <item name="icon">@drawable/ledning</item>
+        <item name="type">Livsfarlig ledning</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir strømførende ledning med livsfarlig spenning.</item>
+    </string-array>
+    <string-array name="merknad">
+        <item name="icon">@drawable/note</item>
+        <item name="type">Merknad</item>
+        <item name="name">Markeringsskilt</item>
+        <item name="description">Som overettmerker bør likesidede trekanter anvendes.Trekantene skal
+                ha rød bunnfarge og en vertikal gul stripe på midten. Trekanten nærmest sjøen
+                monteres med spissen opp og trekanten lengst fra sjøen over dette og med spissen
+                ned.</item>
+    </string-array>
     <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="navigation_drawer_items_array">
@@ -7,6 +115,43 @@
         <item>Read</item>
         <item>Help</item>
     </string-array>
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <eat-comment/>
+    <string-array name="overett">
+        <item name="icon">@drawable/overett</item>
+        <item name="type">Overett</item>
+        <item name="name">Markeringsskilt</item>
+        <item name="description">Anvendelse: Viser traseen på sjøbunnen for kabel, rørledning eller
+                lignende sjøledning.</item>
+    </string-array>
+    <array name="overview_signs">
+        <item>@array/kabelferge</item>
+        <item>@array/livsfarlig_ledning</item>
+        <item>@array/vertikal_klaring</item>
+        <item>@array/horisontal_klaring</item>
+        <item>@array/bevegelig_bru</item>
+        <item>@array/dykking_forbudt</item>
+        <item>@array/ankring_forbudt</item>
+        <item>@array/sjøtrafikk_forbudt</item>
+        <item>@array/fartsgrense_opphører</item>
+        <item>@array/sakte_fart</item>
+        <item>@array/anropskanalvhf</item>
+        <item>@array/strekningens_lengde_fra_skiltet_i_meter</item>
+        <item>@array/strekningens_lengde_fra_skiltet_i_nautiske_mil</item>
+        <item>@array/strekningens_lengde_bortenfor_skiltet_i_meter</item>
+        <item>@array/strekningens_lengde_bortenfor_skiltet_i_nautiske_mil</item>
+        <item>@array/tid</item>
+        <item>@array/dato</item>
+        <item>@array/fartøy_større_enn_bt</item>
+        <item>@array/kabel_rørledning_vannledning</item>
+        <item>@array/lav_bru</item>
+        <item>@array/virkeområde</item>
+        <item>@array/sidemarkering_styrbord</item>
+        <item>@array/sidemarkering_babord</item>
+        <item>@array/beste_punkt_for_passering</item>
+        <item>@array/overett</item>
+        <item>@array/merknad</item>
+    </array>
     <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="pref_r4style_entries">
@@ -58,6 +203,83 @@
         <item>0.7</item>
         <item>1.0</item>
         <item>50</item>
+    </string-array>
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <eat-comment/>
+    <string-array name="sakte_fart">
+        <item name="icon">@drawable/saktefart</item>
+        <item name="type">Sakte fart</item>
+        <item name="name">Opplysningsskilt</item>
+        <item name="description">Anvendelse: Angir at fartøyer skal utvise forsiktighet og avpasse
+                farten.</item>
+    </string-array>
+    <string-array name="sidemarkering_babord">
+        <item name="icon">@drawable/sidemarkeringbabord</item>
+        <item name="type">Sidemarkering babord</item>
+        <item name="name">Markeringsskilt</item>
+        <item name="description">Anvendelse: Angir sidemarkering til babord i forhold til
+                merkesystemets hovedretning for begrenset høyde under bru.</item>
+    </string-array>
+    <string-array name="sidemarkering_styrbord">
+        <item name="icon">@drawable/sidemarkeringstyrbord</item>
+        <item name="type">Sidemarkering styrbord</item>
+        <item name="name">Markeringsskilt</item>
+        <item name="description">Anvendelse: Angir sidemarkering til styrbord i forhold til
+                merkesystemets hovedretning for begrenset høyde under bru.</item>
+    </string-array>
+    <string-array name="sjøtrafikk_forbudt">
+        <item name="icon">@drawable/sjotrafikkforbudt</item>
+        <item name="type">Ankring forbudt</item>
+        <item name="name">Forbudsskilt</item>
+        <item name="description">Anvendelse: Angir at sjøtrafikk er forbudt innenfor et sjøområde.</item>
+    </string-array>
+    <string-array name="strekningens_lengde_bortenfor_skiltet_i_meter">
+        <item name="icon">@drawable/strekningenslengdebortenforskiltetimeter</item>
+        <item name="type">Strekningens lengde fra skiltet i nautiske mil</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir en strekning som begynner bortenfor hovedskiltet i
+                meter (m).</item>
+    </string-array>
+    <string-array name="strekningens_lengde_bortenfor_skiltet_i_nautiske_mil">
+        <item name="icon">@drawable/strekningenslengdebortenforskiltetinautiskemil</item>
+        <item name="type">Strekningens lengde fra skiltet i nautiske mil</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir en strekning som begynner bortenfor hovedskiltet i
+                nautiske mil (M).</item>
+    </string-array>
+    <string-array name="strekningens_lengde_fra_skiltet_i_meter">
+        <item name="icon">@drawable/strekningenslengdefraskiltetimeter</item>
+        <item name="type">Strekningens lengde fra skiltet i meter</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir strekning fra hovedskiltet i meter (m).</item>
+    </string-array>
+    <string-array name="strekningens_lengde_fra_skiltet_i_nautiske_mil">
+        <item name="icon">@drawable/strekningenslengdefraskiltetinautiskemil</item>
+        <item name="type">Strekningens lengde fra skiltet i nautiske mil</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir strekning fra skiltet i nautiske mil (M).</item>
+    </string-array>
+    <string-array name="tid">
+        <item name="icon">@drawable/tid</item>
+        <item name="type">Tid</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir tiden for når hovedskiltet gjelder.</item>
+    </string-array>
+    <string-array name="vertikal_klaring">
+        <item name="icon">@drawable/vertikalklaring</item>
+        <item name="type">Vertikal klaring og sikker vertikal klaring</item>
+        <item name="name">Varselskilt</item>
+        <item name="description">Anvendelse: Angir vertikal klaring under bru eller lignende og sikker
+                vertikal klaring under luftlinje med elektrisk energi eller elektronisk
+                kommunikasjon. Ved lave bruer kan skiltet «Annen fare» med underskilt «Lav bru»
+                anvendes.</item>
+    </string-array>
+    <string-array name="virkeområde">
+        <item name="icon">@drawable/virkeomrade</item>
+        <item name="type">Virkeområde</item>
+        <item name="name">Underskilt</item>
+        <item name="description">Anvendelse: Angir hovedskiltets virkeområde en eller begge sider i
+                meter (m).</item>
     </string-array>
     <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
