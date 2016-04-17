@@ -15,6 +15,10 @@ gen/
 # Gradle files
 .gradle/
 build/
+Applications/Android/Samples/build/
+mapsforge-core/build/
+mapsforge-map/build/
+maps
 
 # Local configuration file (sdk path, etc)
 local.properties
