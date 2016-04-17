@@ -38,4 +38,4 @@
     android:layout_alignParentRight="true"
     android:src="@drawable/compass" android:clickable="true"/>
 
-</RelativeLayout><!-- From: file:/D:/Programmer/AndroidProsject/gruppe1-mapapp/Applications/Android/Samples/res/layout/mapviewer.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/layout/mapviewer.xml -->
