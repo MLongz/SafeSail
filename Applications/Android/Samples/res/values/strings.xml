@@ -107,4 +107,12 @@
 
 
 
+    <string name="pref_title_varsel">Varsling</string>
+    <string name="pref_key_varsel">pref_varsel</string>
+    <string name="pref_key_varsel_lyd">pref_varsel_lyd</string>
+    <string name="pref_key_varsel_vibrering">pref_varsel_vibrering</string>
+    <string name="pref_key_varsel_lys">pref_varsel_lys</string>
+    <string name="pref_key_cache">pref_cache_key</string>
+    <string name="clearcache_title">Tøm hurtigbuffer</string>
+    <string name="clearcache_content">Er du sikker på at du vil tømme hurtigbufferen?</string>
 </resources>

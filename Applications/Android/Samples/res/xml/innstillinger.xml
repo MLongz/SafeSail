@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="">
-<PreferenceCategory
-    android:title="">
-    <CheckBoxPreference
-        android:key="pref"
-        android:title="Er Long dum?"
-        android:summary="Er Long en dum liten gutt?"
+    <PreferenceCategory
+        android:title="@string/pref_title_varsel">
+    <SwitchPreference
+        android:key="@string/pref_key_varsel"
+        android:title="Varsling"
+        android:summaryOn="Skru av varsler"
+        android:summaryOff="Skru på varsler"
         android:defaultValue="true"/>
-</PreferenceCategory>
+    <SwitchPreference
+        android:key="pref_varsel_lyd"
+        android:dependency="@string/pref_key_varsel"
+        android:title="Lyd"
+        android:summaryOn="Skru av lyd ved varsling"
+        android:summaryOff="Skru på lyd ved varsling"
+        android:defaultValue="true" />
+    <SwitchPreference
+        android:key="pref_varsel_vibrering"
+        android:dependency="@string/pref_key_varsel"
+        android:title="Vibrering"
+        android:summaryOn="Skru av vibrering ved varsling"
+        android:summaryOff="Skru på vibrering ved varsling"
+        android:defaultValue="true" />
+    <SwitchPreference
+        android:key="pref_varsel_lys"
+        android:dependency="@string/pref_key_varsel"
+        android:title="Lys"
+        android:summaryOn="Skru av lys ved varsling"
+        android:summaryOff="Skru på lys ved varsling"
+        android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="blabla">
+        <Preference
+            android:key="@string/pref_key_cache"
+            android:title="Tøm hurtigbuffer"
+            android:summary="Tøm hurtigbuffer for bedre ytelse"
+            />
+    </PreferenceCategory>
 </PreferenceScreen>
