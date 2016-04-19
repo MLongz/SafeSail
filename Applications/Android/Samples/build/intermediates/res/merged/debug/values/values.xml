@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/skilt.xml -->
     <eat-comment/>
     <string-array name="ankring_forbudt">
         <item name="icon">@drawable/ankringforbudt</item>
@@ -108,14 +108,14 @@
                 monteres med spissen opp og trekanten lengst fra sjøen over dette og med spissen
                 ned.</item>
     </string-array>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="navigation_drawer_items_array">
         <item>Create</item>
         <item>Read</item>
         <item>Help</item>
     </string-array>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/skilt.xml -->
     <eat-comment/>
     <string-array name="overett">
         <item name="icon">@drawable/overett</item>
@@ -152,7 +152,7 @@
         <item>@array/overett</item>
         <item>@array/merknad</item>
     </array>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/arrays.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="pref_r4style_entries">
         <item>Driving Mode</item>
@@ -204,7 +204,7 @@
         <item>1.0</item>
         <item>50</item>
     </string-array>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/skilt.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/skilt.xml -->
     <eat-comment/>
     <string-array name="sakte_fart">
         <item name="icon">@drawable/saktefart</item>
@@ -281,12 +281,12 @@
         <item name="description">Anvendelse: Angir hovedskiltets virkeområde en eller begge sider i
                 meter (m).</item>
     </string-array>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="mediaRouteButtonStyle"/>
     <attr format="reference" name="mediaRouteCastDrawable"/>
@@ -296,7 +296,7 @@
     <attr format="reference" name="mediaRoutePauseDrawable"/>
     <attr format="reference" name="mediaRoutePlayDrawable"/>
     <attr format="reference" name="mediaRouteSettingsDrawable"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
@@ -306,11 +306,11 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/color.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/color.xml -->
     <eat-comment/>
     <color name="ColorPrimary">#FF5722</color>
     <color name="ColorPrimaryDark">#E64A19</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
@@ -330,7 +330,7 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_colors.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_colors.xml -->
     <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
@@ -349,7 +349,7 @@
     <color name="common_plus_signin_btn_text_light_disabled">#FFAAAAAA</color>
     <color name="common_plus_signin_btn_text_light_focused">#FF737373</color>
     <color name="common_plus_signin_btn_text_light_pressed">#DE000000</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
@@ -373,7 +373,7 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_colors.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_colors.xml -->
     <eat-comment/>
     <color name="place_autocomplete_prediction_primary_text">#212121</color>
     <color name="place_autocomplete_prediction_primary_text_highlight">#757575</color>
@@ -381,7 +381,7 @@
     <color name="place_autocomplete_search_hint">#42000000</color>
     <color name="place_autocomplete_search_text">#DE000000</color>
     <color name="place_autocomplete_separator">#1F000000</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
@@ -401,7 +401,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_colors.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
@@ -451,7 +451,7 @@
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
     <declare-styleable name="WalletFragmentOptions"><attr format="enum" name="appTheme"><enum name="holo_dark" value="0"/><enum name="holo_light" value="1"/></attr><attr format="enum" name="environment"><enum name="production" value="1"/><enum name="test" value="3"/><enum name="sandbox" value="0"/><enum name="strict_sandbox" value="2"/></attr><attr format="reference" name="fragmentStyle"/><attr format="enum" name="fragmentMode"><enum name="buyButton" value="1"/><enum name="selectionDetails" value="2"/></attr></declare-styleable>
     <declare-styleable name="WalletFragmentStyle"><attr format="dimension" name="buyButtonHeight"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="dimension" name="buyButtonWidth"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="enum" name="buyButtonText"><enum name="buy_with" value="5"/><enum name="logo_only" value="6"/><enum name="donate_with" value="7"/><enum name="buy_with_google" value="1"/><enum name="buy_now" value="2"/><enum name="book_now" value="3"/><enum name="donate_with_google" value="4"/></attr><attr format="enum" name="buyButtonAppearance"><enum name="google_wallet_classic" value="1"/><enum name="google_wallet_grayscale" value="2"/><enum name="google_wallet_monochrome" value="3"/><enum name="android_pay_dark" value="4"/><enum name="android_pay_light" value="5"/><enum name="android_pay_light_with_border" value="6"/><enum name="classic" value="1"/><enum name="grayscale" value="2"/><enum name="monochrome" value="3"/></attr><attr format="reference" name="maskedWalletDetailsTextAppearance"/><attr format="reference" name="maskedWalletDetailsHeaderTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsBackground"/><attr format="reference" name="maskedWalletDetailsButtonTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsButtonBackground"/><attr format="color" name="maskedWalletDetailsLogoTextColor"/><attr format="enum" name="maskedWalletDetailsLogoImageType"><enum name="google_wallet_classic" value="1"/><enum name="google_wallet_monochrome" value="2"/><enum name="android_pay" value="3"/><enum name="classic" value="1"/><enum name="monochrome" value="2"/></attr></declare-styleable>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -513,11 +513,11 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -528,18 +528,18 @@
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="mr_media_route_controller_art_max_height">320dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_dimens.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_dimens.xml -->
     <eat-comment/>
     <dimen name="place_autocomplete_button_padding">16dp</dimen>
     <dimen name="place_autocomplete_powered_by_google_height">40dp</dimen>
@@ -551,17 +551,17 @@
     <dimen name="place_autocomplete_progress_horizontal_margin">16dp</dimen>
     <dimen name="place_autocomplete_progress_size">24dp</dimen>
     <dimen name="place_autocomplete_separator_start">72dp</dimen>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/values/cast_ids.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/values/cast_ids.xml -->
     <eat-comment/>
     <item name="cast_notification_id" type="id"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <item name="home" type="id"/>
     <item name="progress_circular" type="id"/>
@@ -572,10 +572,10 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/version.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">8487000</integer>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -595,27 +595,27 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="accept">Accept</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_example">Example action</string>
     <string name="action_settings">Instillinger</string>
     <string name="app_name">NavTest</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/auth_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/auth_strings.xml -->
     <eat-comment/>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="cancelbutton">Cancel</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/values/cast_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/values/cast_strings.xml -->
     <eat-comment/>
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_strings.xml -->
     <eat-comment/>
     <string name="common_google_play_services_api_unavailable_text"><ns1:g id="app_name">%1$s</ns1:g> requires one or more Google Play services that are not currently available. Please contact the developer for assistance.</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
@@ -634,10 +634,10 @@
     <string name="common_google_play_services_restricted_profile_title">Restricted Profile</string>
     <string name="common_google_play_services_sign_in_failed_text">Error signing in the specified account. Please choose a different account.</string>
     <string name="common_google_play_services_sign_in_failed_title">Sign in failed</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/common_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. If the problem persists, please contact the developer for assistance.</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values/base_strings.xml -->
     <eat-comment/>
     <string name="common_google_play_services_unsupported_text"><ns1:g id="app_name">%1$s</ns1:g> relies on Google Play services, which is not supported by your device. Contact the manufacturer for assistance.</string>
     <string name="common_google_play_services_unsupported_title">Google Play services</string>
@@ -650,32 +650,32 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="copyright_osm">Map data © OpenStreetMap contributors</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="dialog_location_title">Coordinates</string>
     <string name="downloadnowbutton">OK</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/google_maps_api.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/google_maps_api.xml -->
     <eat-comment/>
     <string name="google_app_id">44553931877</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyD40B5rDsSL2Vh2KT9OsMRId6xR4en5suQ
     </string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="menu_position_enter_coordinates">Map Position</string>
     <string name="menu_preferences">Settings</string>
     <string name="menu_svgclear">Clear SVG icon cache</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="mr_media_route_button_content_description">Cast</string>
     <string name="mr_media_route_chooser_searching">Searching for devices\u2026</string>
@@ -688,16 +688,16 @@
     <string name="mr_media_route_controller_stop">Stop casting</string>
     <string name="mr_system_route_name">System</string>
     <string name="mr_user_route_category_name">Devices</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="okbutton">OK</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/values/location_strings.xml -->
     <eat-comment/>
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="preferences_category_tilecache">Tilecache</string>
     <string name="preferences_category_wayfiltering">Way filtering</string>
@@ -758,47 +758,47 @@
     <string name="startup_message">To run this samples app, you need any map with filename germany.map installed on the sdcard.</string>
     <string name="startup_message_multimap">To run this sample activity, you need to download a low-resolution world map first.</string>
     <string name="startup_message_tilestore">To run this sample activity, you need a TMS tile store at /sdcard/tilestore. Sample data in the Samples/data directory.</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="title_activity_navigasjon_meny">NavigasjonMeny</string>
     <string name="title_section1">Kart</string>
     <string name="title_section2">Filtrering</string>
     <string name="title_section3">Skilt</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/strings.xml -->
     <eat-comment/>
     <string name="zoomin_button">+</string>
     <string name="zoomlevel">Zoom Level</string>
     <string name="zoomout_button">-</string>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/styles.xml -->
     <eat-comment/>
     <style name="ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">#3399ff</item>
         <item name="android:backgroundStacked">#3399ff</item>
         <item name="android:backgroundSplit">#3399ff</item>
     </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:logo">@android:color/transparent</item>
         <item name="android:actionBarStyle">@style/ActionBar</item>
     </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -1942,7 +1942,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.4.0/res/values/appinvite_styles.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.4.0/res/values/appinvite_styles.xml -->
     <eat-comment/>
     <style name="Theme.AppInvite.Preview" parent="Theme.AppInvite.Preview.Base">
         <item name="android:colorBackground">@android:color/white</item>
@@ -1950,7 +1950,7 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
     <style name="Theme.AppInvite.Preview.Base" parent="@android:style/Theme.Light.NoTitleBar"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_iap_style.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/res/values/admob_iap_style.xml -->
     <eat-comment/>
     <style name="Theme.IAPTheme" parent="android:Theme">
     <item name="android:windowIsTranslucent">true</item>
@@ -1960,7 +1960,7 @@
     <item name="android:windowIsFloating">true</item>
     <item name="android:backgroundDimEnabled">false</item>
   </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Theme.MediaRouter" parent="">
         <item name="mediaRouteButtonStyle">@style/Widget.MediaRouter.MediaRouteButton</item>
@@ -1984,14 +1984,14 @@
         <item name="mediaRoutePauseDrawable">@drawable/mr_ic_pause_light</item>
         <item name="mediaRouteCastDrawable">@drawable/mr_ic_cast_light</item>
     </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_styles.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/values/wallet_styles.xml -->
     <eat-comment/>
     <style name="WalletFragmentDefaultButtonTextAppearance">
         <item name="android:textColor">@color/wallet_primary_text_holo_light</item>
@@ -2025,7 +2025,7 @@
         <item name="maskedWalletDetailsLogoTextColor">@color/wallet_bright_foreground_holo_dark</item>
         <item name="maskedWalletDetailsLogoImageType">android_pay</item>
     </style>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
@@ -2118,7 +2118,7 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.MediaRouter.Light.MediaRouteButton" parent="Widget.AppCompat.Light.ActionButton">
         <item name="android:minWidth">56dp</item>

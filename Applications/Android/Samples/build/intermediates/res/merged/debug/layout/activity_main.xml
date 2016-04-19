@@ -35,4 +35,4 @@
         android:layout_below="@id/notification_list_view">
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
-<!-- From: file:/C:/Users/Dakh/IdeaProjects/gruppe1-mapapp/Applications/Android/Samples/res/layout/activity_main.xml -->
+<!-- From: file:/C:/Users/Dakh/IdeaProjects/test01/Applications/Android/Samples/res/layout/activity_main.xml -->

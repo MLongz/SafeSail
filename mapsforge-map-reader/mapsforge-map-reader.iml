@@ -30,6 +30,5 @@
     <orderEntry type="module" module-name="mapsforge-core" exported="" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.11" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
-    <orderEntry type="library" exported="" name="mapsforge-map-reader.mapsforge-map-reader-master-SNAPSHOT" level="project" />
   </component>
 </module>

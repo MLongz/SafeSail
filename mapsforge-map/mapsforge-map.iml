@@ -28,7 +28,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="mapsforge-map-reader" exported="" />
-    <orderEntry type="module" module-name="mapsforge-map-awt" exported="" />
+    <orderEntry type="module" module-name="mapsforge-map-awt" exported="" scope="TEST" />
     <orderEntry type="library" exported="" name="kxml2-2.3.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.11" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="commons-io-2.4" level="project" />
@@ -39,6 +39,5 @@
     <orderEntry type="library" exported="" scope="TEST" name="servlet-api-2.5-20081211" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="slf4j-api-1.7.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="log4j-1.2.17" level="project" />
-    <orderEntry type="library" exported="" name="mapsforge-map.mapsforge-map-master-SNAPSHOT" level="project" />
   </component>
 </module>
