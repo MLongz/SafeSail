@@ -1,5 +1,7 @@
 package org.mapsforge.applications.android.samples;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by M. Long on 15.03.2016.
  */
@@ -7,9 +9,9 @@ public class Skilt {
     private String navn;
     private String type;
     private String beskrivelse;
-    private int iconID;
+    private Drawable iconID;
 
-    public Skilt(String navn, String type, String beskrivelse, int iconID) {
+    public Skilt(String navn, String type, String beskrivelse, Drawable iconID) {
         this.navn = navn;
         this.type = type;
         this.beskrivelse = beskrivelse;
@@ -40,16 +42,16 @@ public class Skilt {
         this.beskrivelse = beskrivelse;
     }
 
-    public int getIconID() {
+    public Drawable getIconID() {
         return iconID;
     }
 
-    public void setIconID(int iconID) {
+    public void setIconID(Drawable iconID) {
         this.iconID = iconID;
     }
 
     @Override
     public String toString() {
-        return navn + " Type:" + type + " Beskrivelse: " + beskrivelse + " " + iconID;
+        return navn + "\n" + " Type:" + type + "\n" + " Beskrivelse: " + beskrivelse;
     }
 }
