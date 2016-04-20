@@ -1,3 +1,1 @@
-include "mapsforge-core", "mapsforge-map-reader", "mapsforge-map", "mapsforge-map-writer", "mapsforge-map-awt","mapsforge-map-android", "Applications:Android:Samples", "SwingMapViewer"
-
-
+include ':sailsafe'

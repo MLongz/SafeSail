@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Dakh\IdeaProjects\test01\mapsforge-map-android\res"/><source path="C:\Users\Dakh\IdeaProjects\test01\mapsforge-map-android\build\generated\res\rs\release"/><source path="C:\Users\Dakh\IdeaProjects\test01\mapsforge-map-android\build\generated\res\resValues\release"/></dataSet><dataSet config="release"><source path="C:\Users\Dakh\IdeaProjects\test01\mapsforge-map-android\src\release\res"/></dataSet><mergedItems/></merger>

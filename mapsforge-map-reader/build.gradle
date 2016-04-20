@@ -1,8 +1,0 @@
-jar {
-  exclude('COPYING', 'COPYING.LESSER')
-}
-
-dependencies {
-  compile project(":mapsforge-core")
-}
-
