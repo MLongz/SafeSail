@@ -55,5 +55,9 @@ public class Rotating extends Marker {
     public void setRotation(float rotation) {
         this.rotation = rotation;
     }
+
+    public void setLocation(LatLong location) {
+        super.setLatLong(location);
+    }
 }
 

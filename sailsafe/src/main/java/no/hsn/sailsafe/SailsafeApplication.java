@@ -39,7 +39,7 @@ public class SailsafeApplication extends Application {
 	public static final String SETTING_WAYFILTERING_DISTANCE = "wayfiltering_distance";
 	public static final String SETTING_TILECACHE_PERSISTENCE = "tilecache_persistence";
 	public static final String SETTING_RENDERING_THREADS = "rendering_threads";
-	public static final String TAG = "Mapsforge Samples";
+	public static final String TAG = "Sailsafe";
 
 
 	@Override
