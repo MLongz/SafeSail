@@ -48,8 +48,6 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     private TileRendererLayer tileRendererLayer;
     private LatLong myLocationNow;
 
-    private TextView txttest;
-
     public static final String TAG = SailsafeApplication.TAG;
 
 
@@ -75,7 +73,6 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     @Override
     public void onAngleChanged(double angle) {
         imageCompass.setRotation((float) angle);
-        txttest.setText(String.valueOf(String.valueOf(angle)));
         boatMarker.setRotation((float)angle);
         mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
     }
@@ -92,7 +89,6 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.projection = new MapViewProjection(this.mapView);
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
-        this.txttest = (TextView) rootView.findViewById(R.id.tvHeading);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

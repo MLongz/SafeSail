@@ -139,53 +139,66 @@
 
 	</stylemenu>
 
-	<rule e="way" k="AREAL" v="*">
+	<rule e="way" k="admingrense" v="drawable">
 		<line stroke="#FF00F2"/>
 	</rule>
+	<rule e="node" k="ankring_point" v="drawable" zoom-min="14">
+		<symbol id="helipad" src="assets:symbols/transport/helicopter_pad.svg"/>
+	</rule>
+	<rule e="way" k="ankring_polygon" v="drawable">
+		<line stroke="#9940C2"/>
+	</rule>
+	<rule e="way" k="artsfunksjon_flater" v="drawable">
+		<area fill="#9192A8"/>
 
-	<rule e="way" k="dybdeareal" v="*">
+	</rule>
+	<rule e="node" k="artsfunksjon_punkt" v="drawable">
+		<caption k="name" display="always" priority="100" font-size="12" fill="#6C96E6" stroke="#FFFFFF" stroke-width="2.0"/>
+	</rule>
+	<rule e="node" k="bygningspunkt" v="drawable" zoom-min="20">
+		<caption k="name" display="always" priority="100" font-size="12" fill="#6C96E6" stroke="#FFFFFF" stroke-width="2.0"/>
+	</rule>
+	<rule e="way" k="dybdeareal" v="drawable">
 		<area fill="#B3DDFF"/>
 	</rule>
-	
-	<rule e="way" k="dybdekontur" v="*">
+	<rule e="way" k="dybdekontur" v="drawable">
 		<line stroke="#9775AA"/>
 	</rule>
+	<rule e="way" k="europavei" v="drawable">
+		<line stroke="#492835" stroke-width="2.0"/>
+	</rule>
 
-	<rule e="way" k="flytebrygge_a" v="test">
+
+	<rule e="way" k="flytebrygge_a" v="drawable">
 		<area fill="#303634"/>
 	</rule>
 
-	<rule e="way" k="flytebrygge_l" v="test">
+	<rule e="way" k="flytebrygge_l" v="drawable">
 		<line stroke="#3A3F3D" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="grunne" v="*">
+	<rule e="way" k="grunne" v="drawable">
 		<line stroke="#29616B" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="konst_kyst_gr" v="test">
+	<rule e="way" k="konst_kyst_gr" v="drawable">
 		<line stroke="#78367F" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="konst_kyst_l" v="test">
+	<rule e="way" k="konst_kyst_l" v="drawable">
 		<line stroke="#AC3C39" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="kystkontur" v="test">
+	<rule e="way" k="kystkontur" v="drawable">
 		<line stroke="#489230" stroke-width="1.0"/>
 	</rule>
-	<rule e="way" k="europavei" v="test">
-		<line stroke="#492835" stroke-width="2.0"/>
-	</rule>
-	<rule e="way" k="kystsperre" v="*">
+
+	<rule e="way" k="kystsperre" v="drawable">
 		<line stroke="#489230"/>
 	</rule>
 	
-	<rule e="way" k="skjaer" v="test">
+	<rule e="node" k="skjaer" v="drawable">
 		<symbol id="helipad" src="assets:symbols/transport/helicopter_pad.svg"/>
-		<rule e="any" k="*" v="*" zoom-min="17">
-			<caption priority="-20" symbol-id="helipad" k="name" position="above" font-style="bold" font-size="12" fill="#0092DA" stroke="#FFFFFF" stroke-width="2.0"/>
-		</rule>
 	</rule>
 
 	<rule e="way" k="natural" v="issea|sea">
