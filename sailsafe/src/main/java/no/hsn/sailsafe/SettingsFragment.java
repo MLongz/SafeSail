@@ -3,9 +3,11 @@ package no.hsn.sailsafe;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import java.io.File;
@@ -21,12 +23,14 @@ import java.io.File;
 public class SettingsFragment extends PreferenceFragment {
 
 //    private ListPreference mListPreference;
+    SharedPreferences prefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.innstillinger);
-        Preference cachePreference = (Preference) findPreference(getString(R.string.pref_key_cache));
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        final Preference cachePreference = (Preference) findPreference(getString(R.string.pref_key_cache));
         cachePreference.setSummary(getCacheSizeText(getActivity()));
         cachePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -38,6 +42,7 @@ public class SettingsFragment extends PreferenceFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // Kode for å tømme hurtigbuffer, clear cache
                         deleteCache(getActivity());
+                        cachePreference.setSummary(getCacheSizeText(getActivity()));
                         Toast.makeText(getActivity(), "Hurtigbuffer slettet", Toast.LENGTH_SHORT).show();
                     }
                 });
