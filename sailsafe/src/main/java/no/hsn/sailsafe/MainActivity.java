@@ -203,7 +203,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 //    }
 
     /** Her blir varsel laget. Alt av icon, lyd osv kan gjøres her*/
-    private void getVarsel(int mNotificationId, String innmelding){
+    public void getVarsel(int mNotificationId, String innmelding){
         String time = DateFormat.getDateTimeInstance().format(new Date());
 
         Intent intent = new Intent(this, MainActivity.class);

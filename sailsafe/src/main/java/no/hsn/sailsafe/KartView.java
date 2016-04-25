@@ -1,5 +1,7 @@
 package no.hsn.sailsafe;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.location.Location;
 import android.os.Bundle;
@@ -12,20 +14,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import no.hsn.sailsafe.bearing.NorthProvider;
 import org.mapsforge.core.model.LatLong;
+import org.mapsforge.core.model.Point;
+import org.mapsforge.core.model.Tag;
+import org.mapsforge.core.model.Tile;
+import org.mapsforge.core.util.MercatorProjection;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
 import org.mapsforge.map.android.rendertheme.AssetsRenderTheme;
 import org.mapsforge.map.android.util.AndroidUtil;
 import org.mapsforge.map.android.view.MapView;
 import org.mapsforge.map.datastore.MapDataStore;
+import org.mapsforge.map.datastore.MapReadResult;
+import org.mapsforge.map.datastore.PointOfInterest;
+import org.mapsforge.map.datastore.Way;
 import org.mapsforge.map.layer.cache.TileCache;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.XmlRenderTheme;
 import org.mapsforge.map.rendertheme.XmlRenderThemeMenuCallback;
 import org.mapsforge.map.rendertheme.XmlRenderThemeStyleMenu;
+import org.mapsforge.map.util.MapViewProjection;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -40,6 +51,10 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     public static final String TAG = SailsafeApplication.TAG;
 
 
+    private static final int TOUCH_RADIUS = 32 / 2;
+    private MapViewProjection projection;
+    private MainActivity activity;
+
     private NorthProvider northProvider;
     private ImageView imageCompass;
     private Rotating boatMarker;
@@ -47,6 +62,12 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     public KartView() {
         super();
+    }
+
+    @Override
+    public void onAttach(Activity myActivity) {
+        super.onAttach(myActivity);
+        this.activity= (MainActivity) myActivity;
     }
 
     @Override
@@ -66,6 +87,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.projection = new MapViewProjection(this.mapView);
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         imageCompass.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +121,44 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         return rootView;
     }
 
+
+    private void onLongPress(LatLong tapLatLong, Point tapXY) {
+        // Reads all map data for the area covered by the given tile at the tile zoom level
+        int tileX = MercatorProjection.longitudeToTileX(tapLatLong.longitude, mapView.getModel().mapViewPosition.getZoomLevel());
+        int tileY = MercatorProjection.latitudeToTileY(tapLatLong.latitude, mapView.getModel().mapViewPosition.getZoomLevel());
+        Tile tile = new Tile(tileX, tileY, mapView.getModel().mapViewPosition.getZoomLevel(), mapView.getModel().displayModel.getTileSize());
+        MapFile mapFile = new MapFile(getMapFile());
+        MapReadResult mapReadResult = mapFile.readMapData(tile);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("*** POIS ***");
+        List<PointOfInterest> pointOfInterests = mapReadResult.pointOfInterests;
+        for (PointOfInterest pointOfInterest : pointOfInterests) {
+            LatLong latLong = pointOfInterest.position;
+            Point layerXY = this.projection.toPixels(latLong);
+            if (layerXY.distance(tapXY) > TOUCH_RADIUS * mapView.getModel().displayModel.getScaleFactor()) {
+                continue;
+            }
+            sb.append("\n");
+            List<Tag> tags = pointOfInterest.tags;
+            for (Tag tag : tags) {
+                String sb2;
+                sb2 = tag.key.toString();
+                if(sb2.contains("skjaer")){
+                    activity.getVarsel(1, "Skjaer ahead!");
+                }
+                sb.append("\n").append(tag.key).append("=").append(tag.value);
+            }
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
+        builder.setIcon(android.R.drawable.ic_menu_search);
+        builder.setTitle("Testing av geosearch");
+        builder.setMessage(sb);
+        builder.setPositiveButton(R.string.okbutton, null);
+        builder.show();
+    }
+
 /** Bruker AssesRendertheme klassen til å hente en rendertheme, returnerer null dersom det er feil */
     public XmlRenderTheme getRenderTheme() {
         try {
@@ -121,8 +181,18 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     /** Laqger layer ved bruk av en render theme, tegner opp kartet*/
     private void createLayer() {
         MapDataStore mapDataStore = new MapFile(getMapFile());
-        this.tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
-                this.mapView.getModel().mapViewPosition, false, true, AndroidGraphicFactory.INSTANCE);
+        this.tileRendererLayer = new TileRendererLayer(
+                tileCache, mapDataStore,
+                this.mapView.getModel().mapViewPosition,
+                false, true, AndroidGraphicFactory.INSTANCE){
+            @Override
+            public boolean onLongPress(LatLong tapLatLong, Point layerXY, Point tapXY) {
+                KartView.this.onLongPress(tapLatLong, tapXY);
+                return true;
+            }
+        };
+
+
         tileRendererLayer.setXmlRenderTheme(getRenderTheme());
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
