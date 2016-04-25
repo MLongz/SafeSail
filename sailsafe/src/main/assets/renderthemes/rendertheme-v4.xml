@@ -164,7 +164,7 @@
 	<rule e="way" k="dybdekontur" v="drawable">
 		<line stroke="#9775AA"/>
 	</rule>
-	<rule e="way" k="europavei" v="drawable">
+	<rule e="way" k="europavei" v="drawable" zoom-min="10">
 		<line stroke="#492835" stroke-width="2.0"/>
 	</rule>
 
@@ -177,7 +177,7 @@
 		<line stroke="#3A3F3D" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="grunne" v="drawable">
+	<rule e="node" k="grunne" v="drawable" zoom-min="15">
 		<line stroke="#29616B" stroke-width="1.0"/>
 	</rule>
 
@@ -198,7 +198,7 @@
 	</rule>
 	
 	<rule e="node" k="skjaer" v="drawable">
-		<symbol id="helipad" src="assets:symbols/transport/helicopter_pad.svg"/>
+		<symbol id="helipad" src="assets:symbols/transport/helicopter_pad.png"/>
 	</rule>
 
 	<rule e="way" k="natural" v="issea|sea">

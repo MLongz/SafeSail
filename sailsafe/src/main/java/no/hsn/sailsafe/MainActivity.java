@@ -113,7 +113,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         varselListView.setAdapter(warningAdapter);
 
         //Kjører en test varsel
-        getVarsel(1, "Death incoming");
+        //getVarsel(1, "Death incoming");
 
 
     }

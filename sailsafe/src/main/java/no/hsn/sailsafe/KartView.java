@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import junit.framework.Assert;
+import junit.framework.AssertionFailedError;
 import no.hsn.sailsafe.bearing.NorthProvider;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.core.model.Point;
@@ -88,7 +90,6 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.projection = new MapViewProjection(this.mapView);
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         imageCompass.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +104,8 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         this.mapView.setBuiltInZoomControls(false);
         this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
         this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
+
+        this.projection = new MapViewProjection(this.mapView);
 
         northProvider = new NorthProvider(rootView.getContext());
         northProvider.setChangeEventListener(this);
@@ -134,22 +137,30 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         StringBuilder sb = new StringBuilder();
         sb.append("*** POIS ***");
         List<PointOfInterest> pointOfInterests = mapReadResult.pointOfInterests;
-        for (PointOfInterest pointOfInterest : pointOfInterests) {
-            LatLong latLong = pointOfInterest.position;
-            Point layerXY = this.projection.toPixels(latLong);
-            if (layerXY.distance(tapXY) > TOUCH_RADIUS * mapView.getModel().displayModel.getScaleFactor()) {
-                continue;
-            }
-            sb.append("\n");
-            List<Tag> tags = pointOfInterest.tags;
-            for (Tag tag : tags) {
-                String sb2;
-                sb2 = tag.key.toString();
-                if(sb2.contains("skjaer")){
-                    activity.getVarsel(1, "Skjaer ahead!");
+        try {
+            for (PointOfInterest pointOfInterest : pointOfInterests) {
+                LatLong latLong = pointOfInterest.position;
+                Point layerXY = this.projection.toPixels(latLong);
+                assert latLong != null;
+                assert layerXY != null;
+                if (layerXY.distance(tapXY) > TOUCH_RADIUS * mapView.getModel().displayModel.getScaleFactor()) {
+                    continue;
                 }
-                sb.append("\n").append(tag.key).append("=").append(tag.value);
+                sb.append("\n");
+                List<Tag> tags = pointOfInterest.tags;
+                for (Tag tag : tags) {
+                    Log.d(TAG, " KEY: " + tag.key);
+                    Log.d(TAG, " VALUE: " + tag.value);
+                    String sb2;
+                    sb2 = tag.key.toString();
+                    if (sb2.contains("skjaer")) {
+                        activity.getVarsel(1, "Skjaer ahead!");
+                    }
+                    sb.append("\n").append(tag.key).append("=").append(tag.value);
+                }
             }
+        } catch (AssertionFailedError ex) {
+            Log.d(TAG, " Assertion failed on " + ex.getMessage());
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
