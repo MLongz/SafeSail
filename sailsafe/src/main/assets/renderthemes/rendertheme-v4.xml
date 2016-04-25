@@ -189,7 +189,7 @@
 		<line stroke="#AC3C39" stroke-width="1.0"/>
 	</rule>
 
-	<rule e="way" k="kystkontur" v="drawable">
+	<rule e="way" k="kystkontur" v="drawable" >
 		<line stroke="#489230" stroke-width="1.0"/>
 	</rule>
 
