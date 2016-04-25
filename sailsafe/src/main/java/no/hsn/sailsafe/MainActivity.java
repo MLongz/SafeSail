@@ -2,7 +2,10 @@ package no.hsn.sailsafe;
 
 import android.app.*;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -35,6 +38,8 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
+    SharedPreferences prefs;
+
     private String[] getmNavigationTitles() {
         return new String[] {
                 getString(R.string.title_section1),
@@ -50,6 +55,8 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         super.onCreate(savedInstanceState);
 //        AndroidGraphicFactory.createInstance(this.getApplication());
         setContentView(R.layout.activity_main);
+
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         this.mTitle = "SafeSail";
 
@@ -106,7 +113,9 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         varselListView.setAdapter(warningAdapter);
 
         //Kjører en test varsel
-//        getVarsel(1, "Death incoming");
+        getVarsel(1, "Death incoming");
+
+
     }
 
     /** Lager varsel icon og en button som kan åpne varsel lista*/
@@ -203,7 +212,8 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 //    }
 
     /** Her blir varsel laget. Alt av icon, lyd osv kan gjøres her*/
-    public void getVarsel(int mNotificationId, String innmelding){
+    public void getVarsel(int mNotificationId, String innmelding) {
+        if (prefs.getBoolean(getString(R.string.pref_key_varsel), true)){
         String time = DateFormat.getDateTimeInstance().format(new Date());
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -215,13 +225,18 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         mBuilder.setContentText(melding);
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setPriority(2);
-        // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
-        mBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+            // Checks if the sound is turned on in settings:
+            if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
+                // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+            }
+            // Checks if the vibration is turned on in settings:
+            if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {
+                mBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000});
+            }
         notificationManager.notify(mNotificationId, mBuilder.build());
         setNotifCount(1);
         varselList.add(melding);
         warningAdapter.notifyDataSetChanged();
     }
-
-
-}
+    }
+    }

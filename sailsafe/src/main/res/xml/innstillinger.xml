@@ -2,6 +2,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   android:title="">
     <PreferenceCategory
+        android:title="Filtrering"
+        android:summary="Velg ulike deler av kartet som skal være med eller ikke.">
+        <SwitchPreference
+                android:key="pref_key_filtrering_skjaer"
+                android:title="Skjær"
+                android:defaultValue="true"/>
+        <SwitchPreference
+                android:key="pref_key_filtrering_grunne"
+                android:title="Grunne"
+                android:defaultValue="true"/>
+        <SwitchPreference
+                android:key="pref_key_filtrering_fartsgrense"
+                android:title="Fartsgrenser"
+                android:defaultValue="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
             android:title="@string/pref_title_varsel">
         <SwitchPreference
                 android:key="@string/pref_key_varsel"
@@ -23,17 +40,17 @@
                 android:summaryOn="Skru av vibrering ved varsling"
                 android:summaryOff="Skru på vibrering ved varsling"
                 android:defaultValue="true" />
-        <SwitchPreference
+        <!--<SwitchPreference
                 android:key="pref_varsel_lys"
                 android:dependency="@string/pref_key_varsel"
                 android:title="Lys"
                 android:summaryOn="Skru av lys ved varsling"
                 android:summaryOff="Skru på lys ved varsling"
-                android:defaultValue="true" />
+                android:defaultValue="true" /> -->
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:title="blabla">
+            android:title="Hurtigbuffer">
         <Preference
                 android:key="@string/pref_key_cache"
                 android:title="Tøm hurtigbuffer"
