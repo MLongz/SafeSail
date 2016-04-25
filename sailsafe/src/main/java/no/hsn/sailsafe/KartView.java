@@ -72,6 +72,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     @Override
     public void onAngleChanged(double angle) {
+        //TODO Compass skal ikke rotere men altid vise true north
         imageCompass.setRotation((float) angle);
         boatMarker.setRotation((float)angle);
         mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
