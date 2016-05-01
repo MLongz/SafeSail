@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static no.hsn.sailsafe.R.drawable.varsel;
 
 /**
  * Created by Long Huynh on 09.02.2016.
@@ -212,30 +215,34 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
     /** Her blir varsel laget. Alt av icon, lyd osv kan gjøres her*/
     public void getVarsel(int mNotificationId, String innmelding) {
-        if (prefs.getBoolean(getString(R.string.pref_key_varsel), true)){
-        String time = DateFormat.getDateTimeInstance().format(new Date());
+        try {
+            if (prefs.getBoolean(getString(R.string.pref_key_varsel), true)) {
+                String time = DateFormat.getDateTimeInstance().format(new Date());
 
-        Intent intent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        String melding = innmelding + "         " + time;
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setSmallIcon(R.drawable.varsel);
-        mBuilder.setContentTitle("SafeSail");
-        mBuilder.setContentText(melding);
-        mBuilder.setContentIntent(pendingIntent);
-        mBuilder.setPriority(2);
-            // Checks if the sound is turned on in settings:
-            if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
-                // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+                Intent intent = new Intent(this, MainActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                String melding = innmelding + "         " + time;
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+                mBuilder.setSmallIcon(varsel);
+                mBuilder.setContentTitle("SafeSail");
+                mBuilder.setContentText(melding);
+                mBuilder.setContentIntent(pendingIntent);
+                mBuilder.setPriority(2);
+                // Checks if the sound is turned on in settings:
+                if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
+                    // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+                }
+                // Checks if the vibration is turned on in settings:
+                if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {
+                    mBuilder.setVibrate(new long[]{1000, 1000, 1000});
+                }
+                notificationManager.notify(mNotificationId, mBuilder.build());
+                setNotifCount(1);
+                varselList.add(melding);
+                warningAdapter.notifyDataSetChanged();
             }
-            // Checks if the vibration is turned on in settings:
-            if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {
-                mBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000});
-            }
-        notificationManager.notify(mNotificationId, mBuilder.build());
-        setNotifCount(1);
-        varselList.add(melding);
-        warningAdapter.notifyDataSetChanged();
+        } catch (Exception ex) {
+            Log.d(SailsafeApplication.TAG, ex.getMessage());
+        }
     }
-    }
-    }
+}
