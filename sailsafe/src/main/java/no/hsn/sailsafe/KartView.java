@@ -15,10 +15,17 @@ import android.widget.TextView;
 import junit.framework.Assert;
 import junit.framework.AssertionFailedError;
 import no.hsn.sailsafe.bearing.NorthProvider;
+
+import org.mapsforge.core.graphics.Canvas;
+import org.mapsforge.core.graphics.Color;
+import org.mapsforge.core.graphics.Paint;
+import org.mapsforge.core.graphics.Style;
+import org.mapsforge.core.model.BoundingBox;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.core.model.Point;
 import org.mapsforge.core.model.Tag;
 import org.mapsforge.core.model.Tile;
+import org.mapsforge.core.util.LatLongUtils;
 import org.mapsforge.core.util.MercatorProjection;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
 import org.mapsforge.map.android.rendertheme.AssetsRenderTheme;
@@ -29,6 +36,7 @@ import org.mapsforge.map.datastore.MapReadResult;
 import org.mapsforge.map.datastore.PointOfInterest;
 import org.mapsforge.map.datastore.Way;
 import org.mapsforge.map.layer.cache.TileCache;
+import org.mapsforge.map.layer.overlay.FixedPixelCircle;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.XmlRenderTheme;
@@ -75,8 +83,8 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     @Override
     public void onAngleChanged(double angle) {
         //TODO Compass skal ikke rotere men altid vise true north
-        imageCompass.setRotation((float) angle);
-        boatMarker.setRotation((float)angle);
+        //imageCompass.setRotation((float) angle);
+        boatMarker.setRotation((float) angle);
         mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
     }
 
@@ -86,11 +94,13 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         boatMarker.setLocation(new LatLong(location.getLatitude(), location.getLongitude()));
         //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
         mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+        reverseGeoCode(myLocationNow);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
+        this.projection = new MapViewProjection(this.mapView);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -125,51 +135,52 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         return rootView;
     }
 
+    public void testlol (LatLong location){
+        myLocationNow = new LatLong(location.latitude, location.longitude);
+        boatMarker.setLocation(new LatLong(location.latitude, location.longitude));
+        //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
+        mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+        reverseGeoCode(myLocationNow);
+    }
 
     private void onLongPress(LatLong tapLatLong, Point tapXY) {
+          testlol(tapLatLong);
+    }
+
+    private void reverseGeoCode(LatLong latlong) {
         // Reads all map data for the area covered by the given tile at the tile zoom level
-        int tileX = MercatorProjection.longitudeToTileX(tapLatLong.longitude, mapView.getModel().mapViewPosition.getZoomLevel());
-        int tileY = MercatorProjection.latitudeToTileY(tapLatLong.latitude, mapView.getModel().mapViewPosition.getZoomLevel());
+        int tileX = MercatorProjection.longitudeToTileX(latlong.longitude, mapView.getModel().mapViewPosition.getZoomLevel());
+        int tileY = MercatorProjection.latitudeToTileY(latlong.latitude, mapView.getModel().mapViewPosition.getZoomLevel());
         Tile tile = new Tile(tileX, tileY, mapView.getModel().mapViewPosition.getZoomLevel(), mapView.getModel().displayModel.getTileSize());
         MapFile mapFile = new MapFile(getMapFile());
         MapReadResult mapReadResult = mapFile.readMapData(tile);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("*** POIS ***");
+        LatLongTest latlongtest = null;
         List<PointOfInterest> pointOfInterests = mapReadResult.pointOfInterests;
         try {
             for (PointOfInterest pointOfInterest : pointOfInterests) {
                 LatLong latLong = pointOfInterest.position;
-                Point layerXY = this.projection.toPixels(latLong);
-                assert latLong != null;
-                assert layerXY != null;
-                if (layerXY.distance(tapXY) > TOUCH_RADIUS * mapView.getModel().displayModel.getScaleFactor()) {
-                    continue;
-                }
-                sb.append("\n");
-                List<Tag> tags = pointOfInterest.tags;
-                for (Tag tag : tags) {
-                    Log.d(TAG, " KEY: " + tag.key);
-                    Log.d(TAG, " VALUE: " + tag.value);
-                    String sb2;
-                    sb2 = tag.key.toString();
-                    if (sb2.contains("skjaer")) {
-                        activity.getVarsel(1, "Skjaer ahead!");
+                Double meterRetur = latlongtest.sphericalDistance(myLocationNow, latLong);
+                if(meterRetur <= 1000){
+                    List<Tag> tags = pointOfInterest.tags;
+                    for (Tag tag : tags) {
+                        String checkKey;
+                        checkKey = tag.key.toString();
+                        if (checkKey.contains("skjaer")) {
+                            activity.getVarsel(1, "Skjaer ahead!");
+                        }
                     }
-                    sb.append("\n").append(tag.key).append("=").append(tag.value);
                 }
+
             }
         } catch (AssertionFailedError ex) {
             Log.d(TAG, " Assertion failed on " + ex.getMessage());
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
-        builder.setIcon(android.R.drawable.ic_menu_search);
-        builder.setTitle("Testing av geosearch");
-        builder.setMessage(sb);
-        builder.setPositiveButton(R.string.okbutton, null);
-        builder.show();
     }
+
+
+
 
 /** Bruker AssesRendertheme klassen til å hente en rendertheme, returnerer null dersom det er feil */
     public XmlRenderTheme getRenderTheme() {

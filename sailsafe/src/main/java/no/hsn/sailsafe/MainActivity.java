@@ -112,9 +112,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         warningAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, varselList);
         varselListView.setAdapter(warningAdapter);
 
-        //Kjører en test varsel
-        //getVarsel(1, "Death incoming");
-
 
     }
 
@@ -176,6 +173,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
                 fragment = null;
                 break;
             case 2:
+                fragment = new SkiltView();
                 break;
             case 3:
                 fragment = new SettingsFragment();
@@ -194,7 +192,8 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
     private void setNotifCount(int count){
         //En teller for varsel
-        mNotifCount = +count;
+        mNotifCount = mNotifCount + count;
+        notifCount.setText(String.valueOf(mNotifCount));
         invalidateOptionsMenu();
     }
 
