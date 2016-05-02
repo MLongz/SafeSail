@@ -10,6 +10,8 @@
         <item>@array/dykking_forbudt</item>
         <item>@array/ankring_forbudt</item>
         <item>@array/sjøtrafikk_forbudt</item>
+        <item>@array/annenfare</item> //denne skal settes inn like over den som er vist under
+        <item>@array/fartsgrense</item> //denne skal settes inn like over den som er vist under
         <item>@array/fartsgrense_opphører</item>
         <item>@array/sakte_fart</item>
         <item>@array/anropskanalvhf</item>
@@ -102,12 +104,20 @@
         <item name="description">Anvendelse: Angir at sjøtrafikk er forbudt innenfor et sjøområde.</item>
     </string-array>
 
-    <string-array name="fartsgrense">
-        <item name="icon">@drawable/fartsgrense</item>
-        <item name="type">Fartsgrense</item>
-        <item name="name">Forbudsskilt</item>
-        <item name="description">Anvendelse: Angir høyeste tillatte fart (for eksempel 5 knop).</item>
+    <string-array name="annenfare"> 
+    <item name="icon">@drawable/annenfare</item> 
+    <item name="type">Annen fare</item> 
+    <item name="name">Varselskilt</item> 
+    <item name="description">Anvendelse: Varsler om andre mulige og kommende farer.</item>
+     </string-array>
+
+    <string-array name="fartsgrense"> 
+        <item name="icon">@drawable/fartsgrense</item> 
+        <item name="type">Fartsgrense</item> 
+        <item name="name">Forbudsskilt</item> 
+        <item name="description">Anvendelse: Varsler om gjeldende fartsgrense. I dette tilfellet 5 knop.</item> 
     </string-array>
+
 
     <string-array name="fartsgrense_opphører">
         <item name="icon">@drawable/fartsgrenseopphorer</item>
