@@ -1,9 +1,15 @@
 package no.hsn.sailsafe;
 
-import android.app.*;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -14,7 +20,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -30,6 +40,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
     ListView varselListView;
     List<String> varselList;
     ArrayAdapter<String> warningAdapter;
+    ArrayAdapter<NavItems> navAdapter;
     NotificationManager notificationManager;
     boolean varselOpen = false;
     static Button notifCount;
@@ -43,14 +54,24 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
     SharedPreferences prefs;
 
-    private String[] getmNavigationTitles() {
-        return new String[] {
-                getString(R.string.title_section1),
-                getString(R.string.title_section2),
-                getString(R.string.title_section3),
-                getString(R.string.action_settings)
+    private List<NavItems> getNavigasjonItems() {
+        List<NavItems> navItemList = new ArrayList<>();
+        Resources res = getResources();//Get resource
+        TypedArray ta = res.obtainTypedArray(R.array.navigation_drawer_items_array);//Get array tabellen som inneholder alle de andre tabell id'ene
+        int arraySize = ta.length();
 
-        };
+        for(int i = 0; i < arraySize; i++){
+            int id = ta.getResourceId(i, 0);//Hent id'en som ligger i array overview_signs tabellen
+            if(id > 0){
+                String [] array = res.getStringArray(id);//Hent den riktige string tabellen og legger den i array
+                TypedArray ta2 = res.obtainTypedArray(id);//Henter en typedarray for å kunne få tak i icon ID
+                Drawable d = ta2.getDrawable(0);
+                String navn = array[1].toString();
+                navItemList.add(new NavItems(navn, d));
+            }
+        }
+        ta.recycle();
+        return navItemList;
     }
 
     @Override
@@ -66,14 +87,10 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         this.mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
 
+
 //        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        this.mDrawerList.setAdapter(
-                new ArrayAdapter<>(
-                        this,
-                        R.layout.drawer_list_item,
-                        this.getmNavigationTitles()
-                )
-        );
+        navAdapter = new NavigasjonArrayAdapter(this, getNavigasjonItems());
+        this.mDrawerList.setAdapter(navAdapter);
         this.mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -178,8 +195,10 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
             case 2:
                 fragment = new SkiltView();
                 break;
-            case 3:
+            case 10:
                 fragment = new SettingsFragment();
+                break;
+            case 4:
                 break;
             default:
                 break;

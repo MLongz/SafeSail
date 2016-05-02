@@ -2,22 +2,40 @@
 <resources>
     <string name="app_name">Sailsafe v6</string>
 
-    <string name="title_section1">Kart</string>
-    <string name="title_section2">Filtrering</string>
-    <string name="title_section3">Skilt</string>
+    <string-array name="navigation_drawer_items_array">
+        <item>@array/kart</item>
+        <item>@array/filtering</item>
+        <item>@array/skilt</item>
+        <item>@array/om_oss</item>
+        <item>@array/instillinger</item>
+    </string-array>
+
+    <string-array name="kart">
+        <item name="icon">@drawable/map</item>
+        <item name="name">Kart</item>
+    </string-array>
+    <string-array name="filtering">
+        <item name="icon">@drawable/filter</item>
+        <item name="name">Filtrering</item>
+    </string-array>
+    <string-array name="skilt">
+        <item name="icon">@drawable/info</item>
+        <item name="name">Skilt</item>
+    </string-array>
+    <string-array name="om_oss">
+        <item name="icon">@drawable/info</item>
+        <item name="name">Om oss</item>
+    </string-array>
+    <string-array name="instillinger">
+        <item name="icon">@drawable/settings</item>
+        <item name="name">Instillinger</item>
+    </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
 
-    <string name="action_settings">Instillinger</string>
-
-    <string-array name="navigation_drawer_items_array">
-        <item>Create</item>
-        <item>Read</item>
-        <item>Help</item>
-    </string-array>
 
     <string name="copyright_osm">Map data © OpenStreetMap contributors</string>
 
