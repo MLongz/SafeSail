@@ -136,12 +136,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
     }
 
-    private String[] testmethode() {
-        return new String[]{
-            getString(R.string.app_name)
-        };
-    }
-
     /** Lager varsel icon og en button som kan åpne varsel lista*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -202,10 +196,10 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
             case 2:
                 fragment = new SkiltView();
                 break;
-            case 10:
-                fragment = new SettingsFragment();
+            case 3:
                 break;
             case 4:
+                fragment = new SettingsFragment();
                 break;
             default:
                 break;

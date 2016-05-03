@@ -9,6 +9,7 @@ public class NavItems {
     private String navn;
     private Drawable icon;
 
+
     public NavItems(String navn, Drawable icon) {
         this.navn = navn;
         this.icon = icon;

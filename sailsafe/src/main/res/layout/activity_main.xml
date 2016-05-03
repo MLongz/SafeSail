@@ -21,7 +21,7 @@
             android:descendantFocusability="blocksDescendants"
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp"
-            android:background="#8d000000"
+            android:background="#cccc"
     />
     <ListView
         android:layout_width="match_parent"

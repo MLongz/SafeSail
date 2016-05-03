@@ -20,5 +20,6 @@
         android:text="@+id/label"
         android:textSize="60px"
         android:textColor="#ffffff">
-    </TextView>
+    </TextView
+    >
 </LinearLayout>
