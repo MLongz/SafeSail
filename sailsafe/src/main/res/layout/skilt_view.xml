@@ -4,9 +4,12 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/skilt_list_view"
-        android:layout_gravity="right"
-        android:visibility="visible"/>
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:descendantFocusability="blocksDescendants"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#8d000000"/>
 </LinearLayout>

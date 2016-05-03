@@ -21,7 +21,7 @@ public class NavigasjonArrayAdapter extends ArrayAdapter<NavItems> {
     ImageView imageView;
 
     public NavigasjonArrayAdapter(Context context, List<NavItems> navItems){
-        super(context, R.layout.drawer_list_item);
+        super(context, R.layout.drawer_list_item, navItems);
         this.context = context;
         this.navItems = navItems;
     }
