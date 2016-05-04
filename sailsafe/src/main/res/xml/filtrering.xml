@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ <!--   <PreferenceCategory
+        android:title="Filtrering"
+        android:summary="Velg ulike deler av kartet som skal være med eller ikke.">
+        <SwitchPreference
+            android:key="pref_key_filtrering_dyreliv"
+            android:title="Dyreliv"
+            android:summary="Filtrer dyreliv, som hekkeområder"
+            android:defaultValue="true"/>
+        <SwitchPreference
+            android:key="pref_key_filtrering_grunne"
+            android:title="Grunne"
+            android:summary="Filtrer grunner på kartet"
+            android:defaultValue="true"/>
+        <SwitchPreference
+            android:key="pref_key_filtrering_fartsgrense"
+            android:title="Fartsgrenser"
+            android:summary="Filtrer fartsgrenser på kartet"
+            android:defaultValue="true"/>
+        <SwitchPreference
+            android:key="pref_key_filtrering_militarbase"
+            android:title="Militærbaser"
+            android:summary="Filtrer militærbaser på kartet"
+            android:defaultValue="true"/>
+    </PreferenceCategory> !-->
+    <PreferenceCategory
+        android:key="renderthememenu"
+        android:title="Filtrering"/>
+</PreferenceScreen>
