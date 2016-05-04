@@ -40,7 +40,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
     ListView varselListView;
     List<String> varselList;
     ArrayAdapter<String> warningAdapter;
-    ArrayAdapter<NavItems> navAdapter;
     NotificationManager notificationManager;
     boolean varselOpen = false;
     static Button notifCount;
@@ -86,12 +85,8 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
         this.mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
-
-
 //        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        navAdapter = new NavigasjonArrayAdapter(this, getNavigasjonItems());
-        //this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, this.testmethode()));
-        this.mDrawerList.setAdapter(navAdapter);
+        this.mDrawerList.setAdapter(new NavigasjonArrayAdapter(this, R.layout.drawer_list_item ,getNavigasjonItems()));
         this.mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         getActionBar().setDisplayHomeAsUpEnabled(true);

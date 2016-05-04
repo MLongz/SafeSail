@@ -14,10 +14,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
+        <ImageView
+            android:id="@+id/icon_nav"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="5px">
+        </ImageView>
         <TextView
-            android:id="@+id/footer"
+            android:id="@+id/text_nav"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="60px"
+            android:textColor="#ffffff">
+        </TextView>
     </RelativeLayout>
 
 </RelativeLayout>

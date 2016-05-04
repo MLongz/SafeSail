@@ -1,7 +1,6 @@
 package no.hsn.sailsafe;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.location.Location;
 import android.os.Bundle;
@@ -11,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import junit.framework.Assert;
+
 import junit.framework.AssertionFailedError;
-import no.hsn.sailsafe.bearing.NorthProvider;
 
 import org.mapsforge.core.graphics.Canvas;
 import org.mapsforge.core.graphics.Color;
@@ -25,7 +22,6 @@ import org.mapsforge.core.model.LatLong;
 import org.mapsforge.core.model.Point;
 import org.mapsforge.core.model.Tag;
 import org.mapsforge.core.model.Tile;
-import org.mapsforge.core.util.LatLongUtils;
 import org.mapsforge.core.util.MercatorProjection;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
 import org.mapsforge.map.android.rendertheme.AssetsRenderTheme;
@@ -34,7 +30,6 @@ import org.mapsforge.map.android.view.MapView;
 import org.mapsforge.map.datastore.MapDataStore;
 import org.mapsforge.map.datastore.MapReadResult;
 import org.mapsforge.map.datastore.PointOfInterest;
-import org.mapsforge.map.datastore.Way;
 import org.mapsforge.map.layer.cache.TileCache;
 import org.mapsforge.map.layer.overlay.FixedPixelCircle;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
@@ -48,6 +43,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+
+import no.hsn.sailsafe.bearing.NorthProvider;
 
 /**
  * Created by Long Huynh on 10.02.2016.
@@ -68,7 +65,12 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     private NorthProvider northProvider;
     private ImageView imageCompass;
     private Rotating boatMarker;
-    public static final int BOATMARKERINDEX = 1;
+    public static final int BOATMARKERINDEX = 2;
+    public static final int FARER = 1;
+    private static final Paint fareFarge = Utils.createPaint(
+            AndroidGraphicFactory.INSTANCE.createColor(Color.BLUE), 0,
+            Style.FILL);
+    int i;
 
     public KartView() {
         super();
@@ -143,6 +145,35 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         reverseGeoCode(myLocationNow);
     }
 
+    public void markingDanger(final LatLong position){
+        float circleSize = 20 * this.mapView.getModel().displayModel
+                .getScaleFactor();
+
+        i += 1;
+
+        FixedPixelCircle tappableCircle = new FixedPixelCircle(position,
+                circleSize, fareFarge, null) {
+
+            int count = i;
+
+            @Override
+            public void draw(BoundingBox boundingBox, byte zoomLevel, Canvas
+                    canvas, Point topLeftPoint) {
+                super.draw(boundingBox, zoomLevel, canvas, topLeftPoint);
+
+                long mapSize = MercatorProjection.getMapSize(zoomLevel, this.displayModel.getTileSize());
+
+                int pixelX = (int) (MercatorProjection.longitudeToPixelX(position.longitude, mapSize) - topLeftPoint.x);
+                int pixelY = (int) (MercatorProjection.latitudeToPixelY(position.latitude, mapSize) - topLeftPoint.y);
+                String text = Integer.toString(count);
+                canvas.drawText(text, pixelX - fareFarge.getTextWidth(text) / 2, pixelY + fareFarge.getTextHeight(text) / 2, fareFarge);
+            }
+        };
+        this.mapView.getLayerManager().getLayers().add(tappableCircle);
+        tappableCircle.requestRedraw();
+    }
+
+
     private void onLongPress(LatLong tapLatLong, Point tapXY) {
           testlol(tapLatLong);
     }
@@ -168,6 +199,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
                         checkKey = tag.key.toString();
                         if (checkKey.contains("skjaer")) {
                             activity.getVarsel(1, "Skjaer ahead!");
+                            markingDanger(pointOfInterest.position);
                         }
                     }
                 }
@@ -176,7 +208,6 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         } catch (AssertionFailedError ex) {
             Log.d(TAG, " Assertion failed on " + ex.getMessage());
         }
-
     }
 
 
