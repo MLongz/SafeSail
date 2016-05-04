@@ -39,12 +39,11 @@ public class SkiltView extends Fragment {
             if(id > 0){
                 String [] array = res.getStringArray(id);//Hent den riktige string tabellen og legger den i array
                 TypedArray ta2 = res.obtainTypedArray(id);//Henter en typedarray for å kunne få tak i icon ID
+
                 int iconID = ta2.getResourceId(1, 0);
                 Drawable d = ta2.getDrawable(0);
-                String type = array[1].toString();
-                String navn = array[2].toString();
-                String beskrivelse = array[3].toString();
-                skiltliste.add(new Skilt(navn, type, beskrivelse, d));
+                ta2.recycle();
+                skiltliste.add(new Skilt(array[2], array[1], array[3], d));
             }
         }
         ta.recycle();
