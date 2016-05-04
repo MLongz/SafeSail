@@ -24,16 +24,22 @@
         android:label="Sailsafe v6"
         android:theme="@style/AppTheme"
         android:largeHeap="true"
+        android:icon="@drawable/safesale_icon"
     >
 
         <activity
-            android:name="no.hsn.sailsafe.MainActivity"
-            android:label="@string/app_name">
+            android:name="no.hsn.sailsafe.splash_screen"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name">
+
         </activity>
     </application>
 

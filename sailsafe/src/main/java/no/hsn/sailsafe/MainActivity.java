@@ -25,7 +25,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -265,4 +264,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
             Log.d(SailsafeApplication.TAG, ex.getMessage());
         }
     }
+
+
 }
