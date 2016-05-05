@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -25,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -244,7 +246,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
                 mBuilder.setPriority(2);
                 // Checks if the sound is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
-                    // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+                    mBuilder.setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.varsel));
                 }
                 // Checks if the vibration is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {

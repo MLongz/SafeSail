@@ -18,5 +18,6 @@
         <item name="android:background">#3399ff</item>
         <item name="android:backgroundStacked">#3399ff</item>
         <item name="android:backgroundSplit">#3399ff</item>
+        <item name="android:logo">@drawable/menu</item>
     </style>
 </resources>
