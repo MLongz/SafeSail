@@ -92,6 +92,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setDisplayShowTitleEnabled(false);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
