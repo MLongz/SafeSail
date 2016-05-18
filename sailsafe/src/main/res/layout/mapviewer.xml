@@ -19,6 +19,15 @@
         android:singleLine="true"
         android:textColor="#000"
         android:textSize="4pt" />
+    <TextView
+            android:id="@+id/txtSpeedView"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="5dp"
+    />
 
     <ImageView
     android:id="@+id/imageViewCompass"

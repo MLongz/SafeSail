@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import android.widget.TextView;
 import junit.framework.AssertionFailedError;
 
 import org.mapsforge.core.graphics.Canvas;
@@ -40,7 +41,9 @@ import org.mapsforge.map.rendertheme.XmlRenderThemeStyleMenu;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Formatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import no.hsn.sailsafe.bearing.NorthProvider;
@@ -61,10 +64,14 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     private NorthProvider northProvider;
     private ImageView imageCompass;
+    private TextView txtSpeedView;
+    private Formatter fmt;
     private Rotating boatMarker;
     public static final int FARERINDEX = 1;
     public static final int BOATMARKERINDEX = 2;
-    private boolean firstTime = true;
+    public static final double METERPERSECONDTOKNOTS = 1.94384449;
+    public static final String SPEEDUNIT = "knots";
+    //private boolean firstTime = true;
 
     private static final Paint fareFarge = Utils.createPaint(
             AndroidGraphicFactory.INSTANCE.createColor(100, 174, 194, 45), 0,
@@ -96,17 +103,24 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     @Override
     public void onNpLocationChanged(Location location) {
-        myLocationNow = new LatLong(location.getLatitude(), location.getLongitude());
-        boatMarker.setLocation(new LatLong(location.getLatitude(), location.getLongitude()));
-        //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
-        mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
-        reverseGeoCode(myLocationNow);
+        if (location != null) {
+            myLocationNow = new LatLong(location.getLatitude(), location.getLongitude());
+            boatMarker.setLocation(new LatLong(location.getLatitude(), location.getLongitude()));
+            //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
+            mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+            reverseGeoCode(myLocationNow);
+            fmt.format(Locale.GERMANY, "%5.1f", location.getSpeed() * METERPERSECONDTOKNOTS);
+            this.txtSpeedView.setText(fmt.toString() + " " + SPEEDUNIT);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
         this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
+        this.txtSpeedView = (TextView) rootView.findViewById(R.id.txtSpeedView);
+        this.txtSpeedView.setText("0 " + SPEEDUNIT);
+        this.fmt = new Formatter(new StringBuilder());
         imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setCenter(myLocationNow);
