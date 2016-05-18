@@ -17,11 +17,13 @@ import java.util.List;
 public class NavigasjonArrayAdapter extends ArrayAdapter<NavItems> {
     private  Context context;
     private  List<NavItems> navItems;
+    private int resources;
     TextView textView;
     ImageView imageView;
 
-    public NavigasjonArrayAdapter(Context context, List<NavItems> navItems){
-        super(context, R.layout.drawer_list_item);
+    public NavigasjonArrayAdapter(Context context, int resources, List<NavItems> navItems){
+        super(context, resources, navItems);
+        this.resources = resources;
         this.context = context;
         this.navItems = navItems;
     }
@@ -30,7 +32,7 @@ public class NavigasjonArrayAdapter extends ArrayAdapter<NavItems> {
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.drawer_list_item, parent, false);
+        View rowView = inflater.inflate(this.resources, parent, false);
         textView = (TextView) rowView.findViewById(R.id.text_nav);
         imageView = (ImageView) rowView.findViewById(R.id.icon_nav);
 

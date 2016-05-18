@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -40,7 +41,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
     ListView varselListView;
     List<String> varselList;
     ArrayAdapter<String> warningAdapter;
-    ArrayAdapter<NavItems> navAdapter;
     NotificationManager notificationManager;
     boolean varselOpen = false;
     static Button notifCount;
@@ -86,16 +86,13 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
         this.mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
-
-
 //        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        navAdapter = new NavigasjonArrayAdapter(this, getNavigasjonItems());
-        //this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, this.testmethode()));
-        this.mDrawerList.setAdapter(navAdapter);
+        this.mDrawerList.setAdapter(new NavigasjonArrayAdapter(this, R.layout.drawer_list_item ,getNavigasjonItems()));
         this.mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setDisplayShowTitleEnabled(false);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -250,7 +247,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
                 mBuilder.setPriority(2);
                 // Checks if the sound is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
-                    // builder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+                    mBuilder.setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.varsel));
                 }
                 // Checks if the vibration is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {
@@ -265,4 +262,6 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
             Log.d(SailsafeApplication.TAG, ex.getMessage());
         }
     }
+
+
 }
