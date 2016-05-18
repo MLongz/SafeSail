@@ -14,14 +14,14 @@ import java.util.List;
  * Created by M. Long on 20.04.2016.
  * Lager en costumized arrayadapter for å vå frem den visningen vi vil ha. Det vil si tekst og icon.
  */
-public class SkiltArrayAdapter extends ArrayAdapter<Skilt> {
+public class SignArrayAdapter extends ArrayAdapter<Skilt> {
     private final Context context;
-    private final List<Skilt> skilt;
+    private final List<Skilt> signList;
 
-    public SkiltArrayAdapter(Context context,  List<Skilt> skilt){
-        super(context, R.layout.skilt_list, skilt);
+    public SignArrayAdapter(Context context, List<Skilt> signList){
+        super(context, R.layout.skilt_list, signList);
         this.context = context;
-        this.skilt = skilt;
+        this.signList = signList;
     }
 
     @Override
@@ -31,9 +31,9 @@ public class SkiltArrayAdapter extends ArrayAdapter<Skilt> {
         View rowView = inflater.inflate(R.layout.skilt_list, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon_skilt);
-        Drawable d = skilt.get(position).getIconID();
+        Drawable d = signList.get(position).getIconID();
         imageView.setImageDrawable(d);
-        textView.setText(skilt.get(position).toString());
+        textView.setText(signList.get(position).toString());
 
         return rowView;
     }

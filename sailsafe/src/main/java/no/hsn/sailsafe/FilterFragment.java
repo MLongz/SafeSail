@@ -21,13 +21,14 @@ import java.util.Set;
 /**
  * Created by hakonst on 01.05.16.
  */
-public class FiltreringFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
-    SharedPreferences prefs;
+public class FilterFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
     public static final String RENDERTHEME_MENU = "renderthememenu";
-    PreferenceCategory renderthemeMenu;
-    XmlRenderThemeStyleMenu renderthemeOptions;
-    ListPreference baseLayerPreference;
-    // I AM ULTRON
+
+    private SharedPreferences prefs;
+    private PreferenceCategory renderthemeMenu;
+    private XmlRenderThemeStyleMenu renderthemeOptions;
+    private ListPreference baseLayerPreference;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.filtrering);

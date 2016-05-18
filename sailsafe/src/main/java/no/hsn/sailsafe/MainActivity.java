@@ -38,13 +38,13 @@ import static no.hsn.sailsafe.R.drawable.varsel;
  * Created by Long Huynh on 09.02.2016.
  */
 public class MainActivity extends Activity  { //implements NavigationDrawerFragment.NavigationDrawerCallbacks
-    ListView varselListView;
-    List<String> varselList;
-    ArrayAdapter<String> warningAdapter;
-    NotificationManager notificationManager;
-    boolean varselOpen = false;
-    static Button notifCount;
-    static int mNotifCount = 0;
+    private ListView warningListView;
+    private List<String> warningList;
+    private ArrayAdapter<String> warningAdapter;
+    private NotificationManager notificationManager;
+    private boolean warningIsOpen = false;
+    static Button notificationCountButton;
+    static int mNotificationCount = 0;
 
     private CharSequence mTitle;
 
@@ -52,7 +52,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
-    SharedPreferences prefs;
+    private SharedPreferences prefs;
 
     private List<NavItems> getNavigasjonItems() {
         List<NavItems> navItemList = new ArrayList<>();
@@ -87,7 +87,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         this.mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
 //        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        this.mDrawerList.setAdapter(new NavigasjonArrayAdapter(this, R.layout.drawer_list_item ,getNavigasjonItems()));
+        this.mDrawerList.setAdapter(new NavigationArrayAdapter(this, R.layout.drawer_list_item ,getNavigasjonItems()));
         this.mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -125,10 +125,10 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
          notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         //Setter opp notifikasjon lista og arraList og warningAdapter for å legge inn data dynamisk
-        varselListView = (ListView) findViewById(R.id.notification_list_view);
-        varselList = new ArrayList<>();
-        warningAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, varselList);
-        varselListView.setAdapter(warningAdapter);
+        warningListView = (ListView) findViewById(R.id.notification_list_view);
+        warningList = new ArrayList<>();
+        warningAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, warningList);
+        warningListView.setAdapter(warningAdapter);
 
 
     }
@@ -140,19 +140,19 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
         menuInflater.inflate(R.menu.main, menu);
 
         final View count = menu.findItem(R.id.varselicon).getActionView();
-        notifCount = (Button) count.findViewById(R.id.notif_count);
-        notifCount.setText(String.valueOf(mNotifCount));
-        notifCount.setOnClickListener(new View.OnClickListener() {
+        notificationCountButton = (Button) count.findViewById(R.id.notif_count);
+        notificationCountButton.setText(String.valueOf(mNotificationCount));
+        notificationCountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!varselOpen) {
-                    varselListView.setVisibility(View.VISIBLE);
-                    varselOpen = true;
+                if(!warningIsOpen) {
+                    warningListView.setVisibility(View.VISIBLE);
+                    warningIsOpen = true;
                 }else {
-                    varselListView.setVisibility(View.GONE);
-                    varselOpen = false;
-                    mNotifCount = 0;
-                    notifCount.setText(String.valueOf(mNotifCount));
+                    warningListView.setVisibility(View.GONE);
+                    warningIsOpen = false;
+                    mNotificationCount = 0;
+                    notificationCountButton.setText(String.valueOf(mNotificationCount));
                 }
             }
         });
@@ -212,33 +212,24 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
 
     private void setNotifCount(int count){
         //En teller for varsel
-        mNotifCount = mNotifCount + count;
-        notifCount.setText(String.valueOf(mNotifCount));
+        mNotificationCount = mNotificationCount + count;
+        notificationCountButton.setText(String.valueOf(mNotificationCount));
         invalidateOptionsMenu();
     }
 
-//    @Override
-//    protected void onPostCreate(Bundle savedInstanceState) {
-//        super.onPostCreate(savedInstanceState);
-//        // Sync the toggle state after onRestoreInstanceState has occurred.
-//        mDrawerToggle.syncState();
-//    }
-
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        mDrawerToggle.onConfigurationChanged(newConfig);
-//    }
-
-    /** Her blir varsel laget. Alt av icon, lyd osv kan gjøres her*/
-    public void getVarsel(int mNotificationId, String innmelding) {
+    /**
+     * Creates and gets the current warning.
+     * @param mNotificationId The ID for the warning
+     * @param textWarning The textual context of the warning
+     */
+    public void getWarning(int mNotificationId, String textWarning) {
         try {
             if (prefs.getBoolean(getString(R.string.pref_key_varsel), true)) {
                 String time = DateFormat.getDateTimeInstance().format(new Date());
 
                 Intent intent = new Intent(this, MainActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                String melding = innmelding + "         " + time;
+                String melding = textWarning + "         " + time;
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
                 mBuilder.setSmallIcon(varsel);
                 mBuilder.setContentTitle("SafeSail");
@@ -247,7 +238,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
                 mBuilder.setPriority(2);
                 // Checks if the sound is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_lyd), true)) {
-                    mBuilder.setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.varsel));
+                    mBuilder.setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.drawable.varsel));
                 }
                 // Checks if the vibration is turned on in settings:
                 if (prefs.getBoolean(getString(R.string.pref_key_varsel_vibrering), true)) {
@@ -255,7 +246,7 @@ public class MainActivity extends Activity  { //implements NavigationDrawerFragm
                 }
                 notificationManager.notify(mNotificationId, mBuilder.build());
                 setNotifCount(1);
-                varselList.add(melding);
+                warningList.add(melding);
                 warningAdapter.notifyDataSetChanged();
             }
         } catch (Exception ex) {

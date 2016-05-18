@@ -6,24 +6,16 @@ import android.graphics.drawable.Drawable;
  * Created by M. Long on 15.03.2016.
  */
 public class Skilt {
-    private String navn;
+    private String name;
     private String type;
-    private String beskrivelse;
+    private String description;
     private Drawable iconID;
 
-    public Skilt(String navn, String type, String beskrivelse, Drawable iconID) {
-        this.navn = navn;
+    public Skilt(String name, String type, String description, Drawable iconID) {
+        this.name = name;
         this.type = type;
-        this.beskrivelse = beskrivelse;
+        this.description = description;
         this.iconID = iconID;
-    }
-
-    public String getNavn() {
-        return navn;
-    }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
     }
 
     public String getType() {
@@ -34,24 +26,12 @@ public class Skilt {
         this.type = type;
     }
 
-    public String getBeskrivelse() {
-        return beskrivelse;
-    }
-
-    public void setBeskrivelse(String beskrivelse) {
-        this.beskrivelse = beskrivelse;
-    }
-
     public Drawable getIconID() {
         return iconID;
     }
 
-    public void setIconID(Drawable iconID) {
-        this.iconID = iconID;
-    }
-
     @Override
     public String toString() {
-        return navn + "\n" + " Type:" + type + "\n" + " Beskrivelse: " + beskrivelse;
+        return name + "\n" + " Type:" + type + "\n" + " Beskrivelse: " + description;
     }
 }

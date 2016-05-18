@@ -14,14 +14,12 @@ import java.util.List;
 /**
  * Created by Long Huynh on 02.05.2016.
  */
-public class NavigasjonArrayAdapter extends ArrayAdapter<NavItems> {
+public class NavigationArrayAdapter extends ArrayAdapter<NavItems> {
     private  Context context;
     private  List<NavItems> navItems;
     private int resources;
-    TextView textView;
-    ImageView imageView;
 
-    public NavigasjonArrayAdapter(Context context, int resources, List<NavItems> navItems){
+    public NavigationArrayAdapter(Context context, int resources, List<NavItems> navItems){
         super(context, resources, navItems);
         this.resources = resources;
         this.context = context;
@@ -33,12 +31,12 @@ public class NavigasjonArrayAdapter extends ArrayAdapter<NavItems> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(this.resources, parent, false);
-        textView = (TextView) rowView.findViewById(R.id.text_nav);
-        imageView = (ImageView) rowView.findViewById(R.id.icon_nav);
+        TextView textView = (TextView) rowView.findViewById(R.id.text_nav);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon_nav);
 
         Drawable d = navItems.get(position).getIcon();
         imageView.setImageDrawable(d);
-        textView.setText(navItems.get(position).getNavn());
+        textView.setText(navItems.get(position).getName());
 
         return rowView;
     }

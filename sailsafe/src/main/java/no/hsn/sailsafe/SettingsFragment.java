@@ -22,14 +22,11 @@ import java.io.File;
  */
 public class SettingsFragment extends PreferenceFragment {
 
-//    private ListPreference mListPreference;
-    SharedPreferences prefs;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.innstillinger);
-        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         final Preference cachePreference = (Preference) findPreference(getString(R.string.pref_key_cache));
         cachePreference.setSummary(getCacheSizeText(getActivity()));
         cachePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

@@ -16,7 +16,8 @@ import java.util.TimerTask;
 /**
  * Created by hakonst on 04.05.16.
  */
-public class splash_screen extends Activity {
+public class SplashScreen extends Activity {
+
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         Window window = getWindow();
@@ -33,7 +34,7 @@ public class splash_screen extends Activity {
         timer.schedule(new TimerTask() { // Creates a new timer task. A task that can be scheduled for one-time or repeated execution by a Timer.
             public void run() {
 
-                Intent intent = new Intent(splash_screen.this, MainActivity.class); //TODO sett inn neste activity
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class); //TODO sett inn neste activity
                 finish(); //Closing this activity before open next
                 startActivity(intent);
             }

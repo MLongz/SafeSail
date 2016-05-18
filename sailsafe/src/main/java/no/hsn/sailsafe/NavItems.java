@@ -6,17 +6,17 @@ import android.graphics.drawable.Drawable;
  * Created by Long Huynh on 02.05.2016.
  */
 public class NavItems {
-    private String navn;
+    private String name;
     private Drawable icon;
 
 
-    public NavItems(String navn, Drawable icon) {
-        this.navn = navn;
+    public NavItems(String name, Drawable icon) {
+        this.name = name;
         this.icon = icon;
     }
 
-    public String getNavn() {
-        return navn;
+    public String getName() {
+        return name;
     }
 
     public Drawable getIcon() {

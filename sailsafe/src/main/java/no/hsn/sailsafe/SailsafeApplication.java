@@ -26,18 +26,10 @@ import org.mapsforge.map.reader.MapFile;
 
 
 public class SailsafeApplication extends Application {
-
-	/*
-	 * type to use for maps to store in the external files directory
-	 */
-	public static final String MAPS = "maps";
-
 	public static final String SETTING_DEBUG_TIMING = "debug_timing";
 	public static final String SETTING_SCALE = "scale";
-	public static final String SETTING_TEXTWIDTH = "textwidth";
 	public static final String SETTING_WAYFILTERING = "wayfiltering";
 	public static final String SETTING_WAYFILTERING_DISTANCE = "wayfiltering_distance";
-	public static final String SETTING_TILECACHE_PERSISTENCE = "tilecache_persistence";
 	public static final String SETTING_RENDERING_THREADS = "rendering_threads";
 	public static final String TAG = "Sailsafe";
 

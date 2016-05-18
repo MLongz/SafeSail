@@ -52,40 +52,34 @@ import no.hsn.sailsafe.bearing.NorthProvider;
  * Created by Long Huynh on 10.02.2016.
  */
 public class KartView extends Fragment implements XmlRenderThemeMenuCallback, NorthProvider.ChangeEventListener {
-    private MapView mapView;
-    private TileCache tileCache;
-    private TileRendererLayer tileRendererLayer;
-    private LatLong myLocationNow;
-
-    public static final String TAG = SailsafeApplication.TAG;
-
-
-    private MainActivity activity;
-
-    private NorthProvider northProvider;
-    private ImageView imageCompass;
-    private TextView txtSpeedView;
-    private Formatter fmt;
-    private Rotating boatMarker;
     public static final int FARERINDEX = 1;
     public static final int BOATMARKERINDEX = 2;
     public static final double METERPERSECONDTOKNOTS = 1.94384449;
     public static final String SPEEDUNIT = "knots";
-    //private boolean firstTime = true;
+    public static final String TAG = SailsafeApplication.TAG;
 
-    private static final Paint fareFarge = Utils.createPaint(
+    private MapView mapView;
+    private TileCache tileCache;
+    private LatLong myLocation;
+
+    private MainActivity activity;
+
+    private NorthProvider northProvider;
+    private TextView txtSpeedView;
+    private Formatter textFormat;
+    private Rotating boatMarker;
+
+    private static final Paint colorDanger = Utils.createPaint(
             AndroidGraphicFactory.INSTANCE.createColor(100, 174, 194, 45), 0,
             Style.FILL);
-    private static final Paint textFarge = Utils.createPaint(
+    private static final Paint colorText = Utils.createPaint(
             AndroidGraphicFactory.INSTANCE.createColor(Color.BLACK), 0,
             Style.STROKE);
-    private static final Paint transparentFarge = Utils.createPaint(
+    private static final Paint colorTransparency = Utils.createPaint(
             AndroidGraphicFactory.INSTANCE.createColor(Color.TRANSPARENT), 0,
             Style.STROKE);
 
-    public KartView() {
-        super();
-    }
+    public KartView() { super(); }
 
     @Override
     public void onAttach(Activity myActivity) {
@@ -104,26 +98,25 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     @Override
     public void onNpLocationChanged(Location location) {
         if (location != null) {
-            myLocationNow = new LatLong(location.getLatitude(), location.getLongitude());
+            myLocation = new LatLong(location.getLatitude(), location.getLongitude());
             boatMarker.setLocation(new LatLong(location.getLatitude(), location.getLongitude()));
-            //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
             mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
-            reverseGeoCode(myLocationNow);
-            fmt.format(Locale.GERMANY, "%5.1f", location.getSpeed() * METERPERSECONDTOKNOTS);
-            this.txtSpeedView.setText(fmt.toString() + " " + SPEEDUNIT);
+            reverseGeoCode(myLocation);
+            textFormat.format(Locale.GERMANY, "%5.1f", location.getSpeed() * METERPERSECONDTOKNOTS);
+            this.txtSpeedView.setText(textFormat.toString() + " " + SPEEDUNIT);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
-        this.imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
+        ImageView imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         this.txtSpeedView = (TextView) rootView.findViewById(R.id.txtSpeedView);
         this.txtSpeedView.setText("0 " + SPEEDUNIT);
-        this.fmt = new Formatter(new StringBuilder());
+        this.textFormat = new Formatter(new StringBuilder());
         imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                setCenter(myLocationNow);
+                setCenter(myLocation);
             }
         });
         this.mapView = (MapView) rootView.findViewById(R.id.mapView);
@@ -142,23 +135,23 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         org.mapsforge.core.graphics.Bitmap bm = AndroidGraphicFactory.convertToBitmap(getResources().getDrawable(R.drawable.navarrow));
         bm.scaleTo(75,75);
 
-        this.myLocationNow = new LatLong(northProvider.getCurrentLocation().getLatitude(), northProvider.getCurrentLocation().getLongitude());
-        boatMarker = new Rotating(myLocationNow, bm, 0,0, 0);
+        this.myLocation = new LatLong(northProvider.getCurrentLocation().getLatitude(), northProvider.getCurrentLocation().getLongitude());
+        boatMarker = new Rotating(myLocation, bm, 0,0, 0);
 
-        creatTileCache();
+        createTileCache();
         createMapLayer();
-        markingDanger(myLocationNow, "", transparentFarge);
+        markingDanger(myLocation, "", colorTransparency);
         this.mapView.getLayerManager().getLayers().add(BOATMARKERINDEX, boatMarker);
-        setCenter(myLocationNow);
+        setCenter(myLocation);
         return rootView;
     }
 
-    public void testlol(LatLong location) {
-        myLocationNow = new LatLong(location.latitude, location.longitude);
+    public void testLocationOnPress(LatLong location) {
+        myLocation = new LatLong(location.latitude, location.longitude);
         boatMarker.setLocation(new LatLong(location.latitude, location.longitude));
         //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
         mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
-        reverseGeoCode(myLocationNow);
+        reverseGeoCode(myLocation);
     }
 
     public void markingDanger(final LatLong position, final String key, Paint farge){
@@ -177,7 +170,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
                 int pixelX = (int) (MercatorProjection.longitudeToPixelX(position.longitude, mapSize) - topLeftPoint.x);
                 int pixelY = (int) (MercatorProjection.latitudeToPixelY(position.latitude, mapSize) - topLeftPoint.y);
                 String text = key;
-                canvas.drawText(text, pixelX - textFarge.getTextWidth(text) / 2, pixelY + textFarge.getTextHeight(text) / 2, textFarge);
+                canvas.drawText(text, pixelX - colorText.getTextWidth(text) / 2, pixelY + colorText.getTextHeight(text) / 2, colorText);
             }
         };
         this.mapView.getLayerManager().getLayers().add(FARERINDEX, dangerCircle);
@@ -186,9 +179,9 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
 
     private void onLongPress(LatLong tapLatLong) {
-          testlol(tapLatLong);
-        markingDanger(tapLatLong, "", fareFarge);
-        activity.getVarsel(1, "Skjaer ahead!");
+          testLocationOnPress(tapLatLong);
+        markingDanger(tapLatLong, "", colorDanger);
+        activity.getWarning(1, "Skjaer ahead!");
     }
 
     private void reverseGeoCode(LatLong latlong) {
@@ -204,7 +197,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         try {
             for (PointOfInterest pointOfInterest : pointOfInterests) {
                 LatLong latLong = pointOfInterest.position;
-                Double meterRetur = latlongtest.sphericalDistance(myLocationNow, latLong);
+                Double meterRetur = latlongtest.sphericalDistance(myLocation, latLong);
                 if(meterRetur <= 1000){
                     List<Tag> tags = pointOfInterest.tags;
                     for (Tag tag : tags) {
@@ -212,8 +205,8 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
                         tagitem = tag.key.toString();
                         checkKey = tag.key.toString();
                         if (checkKey.contains("skjaer")) {
-                            activity.getVarsel(1, "Skjaer ahead!");
-                            markingDanger(pointOfInterest.position, tagitem, fareFarge);
+                            activity.getWarning(1, "Skjaer ahead!");
+                            markingDanger(pointOfInterest.position, tagitem, colorDanger);
                         }
                     }
                 }
@@ -248,17 +241,17 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     /** Laqger layer ved bruk av en render theme, tegner opp kartet*/
     private void createMapLayer() {
         MapDataStore mapDataStore = new MapFile(getMapFile());
-        this.tileRendererLayer = new TileRendererLayer(
+        TileRendererLayer tileRendererLayer = new TileRendererLayer(
                 tileCache, mapDataStore,
                 this.mapView.getModel().mapViewPosition,
-                false, true, AndroidGraphicFactory.INSTANCE){
+                false, true, AndroidGraphicFactory.INSTANCE) {
             @Override
-        public boolean onLongPress(LatLong tapLatLong, Point thisXY,
-                Point tapXY) {
-            KartView.this.onLongPress(tapLatLong);
-            return true;
-        }
-    };
+            public boolean onLongPress(LatLong tapLatLong, Point thisXY,
+                                       Point tapXY) {
+                KartView.this.onLongPress(tapLatLong);
+                return true;
+            }
+        };
 
 
         tileRendererLayer.setXmlRenderTheme(getRenderTheme());
@@ -267,7 +260,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     }
 
     /** Lager en tilecatch som lagrer layers så vi slipper å tegne den på nytt*/
-    private void creatTileCache() {
+    private void createTileCache() {
 
         this.tileCache = AndroidUtil.createTileCache(this.getActivity(), "mapcache",
                 mapView.getModel().displayModel.getTileSize(), 1f,
@@ -293,7 +286,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     public void onResume(){
         super.onResume();
         northProvider.start();
-        setCenter(myLocationNow);
+        setCenter(myLocation);
     }
 
     @Override

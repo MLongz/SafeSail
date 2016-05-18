@@ -1,7 +1,6 @@
 package no.hsn.sailsafe;
 
 import android.app.Fragment;
-import android.app.ListActivity;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -19,16 +18,16 @@ import java.util.List;
  * Created by M. Long on 15.03.2016.
  */
 public class SkiltView extends Fragment {
-    ListView skiltlistView;
-    List<Skilt> skiltliste;
-    ArrayAdapter<Skilt> adapter;
+    private ListView signListView;
+    private List<Skilt> signList;
+    private ArrayAdapter<Skilt> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.skilt_view, container, false);
 
-        skiltlistView = (ListView)v.findViewById(R.id.skilt_list_view);
-        skiltliste = new ArrayList<>();
+        signListView = (ListView)v.findViewById(R.id.skilt_list_view);
+        signList = new ArrayList<>();
 
         Resources res = getResources();//Get resource
         TypedArray ta = res.obtainTypedArray(R.array.overview_signs);//Get array tabellen som inneholder alle de andre tabell id'ene
@@ -43,13 +42,13 @@ public class SkiltView extends Fragment {
                 int iconID = ta2.getResourceId(1, 0);
                 Drawable d = ta2.getDrawable(0);
                 ta2.recycle();
-                skiltliste.add(new Skilt(array[2], array[1], array[3], d));
+                signList.add(new Skilt(array[2], array[1], array[3], d));
             }
         }
         ta.recycle();
 
-        adapter = new SkiltArrayAdapter(this.getActivity(), skiltliste);
-        skiltlistView.setAdapter(adapter);
+        adapter = new SignArrayAdapter(this.getActivity(), signList);
+        signListView.setAdapter(adapter);
 
         return v;
     }

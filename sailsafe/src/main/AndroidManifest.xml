@@ -28,7 +28,7 @@
     >
 
         <activity
-            android:name="no.hsn.sailsafe.splash_screen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
