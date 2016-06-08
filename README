@@ -1,0 +1,8 @@
+Dette prosjektet er en del av bachelorprosjektet for 4 studenter ved Høgskolen i Sørøst-Norge, 2015-2016.
+Det er en sjøkartapp for android-enheter som kjører en versjon mellom 19 og 23.
+
+Kartappen har som mål å vise pregenererte kartfiler laget med Osmosis og Mapsforge-Map-Writer pluginet. Kartfilen er ment å inneholde et kart over norges kyst og inkluderer men er ikke begrenset til skjær, kystsperrer, grunner og andre sjøformasjoner. Kartet kan også inneholde merinformasjon om forhold rundt kystnære strøk som naturvernsområder, vernede dyrearter, statlig sikra friluftsområder, og annet.
+
+Prosjektet er lisensiert under en Lesser general Public Licence v3, og lisensteksten finnes i fila LICENCE.
+
+Dette prosjektet benytter seg av Mapsforge (https://github.com/mapsforge/mapsforge), også lisensiert under LGPLv3.
