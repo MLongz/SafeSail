@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import android.widget.TextView;
+import android.widget.Toast;
 import junit.framework.AssertionFailedError;
 
 import org.mapsforge.core.graphics.Canvas;
@@ -35,6 +36,7 @@ import org.mapsforge.map.layer.cache.TileCache;
 import org.mapsforge.map.layer.overlay.FixedPixelCircle;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.reader.MapFile;
+import org.mapsforge.map.reader.header.MapFileException;
 import org.mapsforge.map.rendertheme.XmlRenderTheme;
 import org.mapsforge.map.rendertheme.XmlRenderThemeMenuCallback;
 import org.mapsforge.map.rendertheme.XmlRenderThemeStyleMenu;
@@ -52,11 +54,14 @@ import no.hsn.sailsafe.bearing.NorthProvider;
  * Created by Long Huynh on 10.02.2016.
  */
 public class KartView extends Fragment implements XmlRenderThemeMenuCallback, NorthProvider.ChangeEventListener {
-    public static final int FARERINDEX = 1;
-    public static final int BOATMARKERINDEX = 2;
-    public static final double METERPERSECONDTOKNOTS = 1.94384449;
-    public static final String SPEEDUNIT = "knots";
-    public static final String TAG = SailsafeApplication.TAG;
+    private static final int    DANGER_INDEX = 1;
+    private static final int    BOAT_MARKER_INDEX = 2;
+    private static final double METER_PER_SECOND_TO_KNOTS = 1.94384449;
+    private static final double YELLOW_WARNING_MPS = 2.57222222545179;
+    private static final int    YELLOW_WARNING_COLOR = 0xffffff00;
+    private static final int    NORMAL_SPEED_COLOR = 0xff000000;
+    private static final String SPEED_UNIT = "knots";
+    private static final String TAG = SailsafeApplication.TAG;
 
     private MapView mapView;
     private TileCache tileCache;
@@ -89,10 +94,8 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
     @Override
     public void onAngleChanged(double angle) {
-        //TODO Compass skal ikke rotere men altid vise true north
-        //imageCompass.setRotation((float) angle);
         boatMarker.setRotation((float) angle);
-        mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+        mapView.getLayerManager().getLayers().get(BOAT_MARKER_INDEX).requestRedraw();
     }
 
     @Override
@@ -100,10 +103,15 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         if (location != null) {
             myLocation = new LatLong(location.getLatitude(), location.getLongitude());
             boatMarker.setLocation(new LatLong(location.getLatitude(), location.getLongitude()));
-            mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+            mapView.getLayerManager().getLayers().get(BOAT_MARKER_INDEX).requestRedraw();
             reverseGeoCode(myLocation);
-            textFormat.format(Locale.GERMANY, "%5.1f", location.getSpeed() * METERPERSECONDTOKNOTS);
-            this.txtSpeedView.setText(textFormat.toString() + " " + SPEEDUNIT);
+            textFormat.format(Locale.GERMANY, "%5.1f", location.getSpeed() * METER_PER_SECOND_TO_KNOTS);
+            this.txtSpeedView.setText(textFormat + " " + SPEED_UNIT);
+            if (location.getSpeed() >= YELLOW_WARNING_MPS) {
+                this.txtSpeedView.setTextColor(YELLOW_WARNING_COLOR);
+            } else {
+                this.txtSpeedView.setTextColor(NORMAL_SPEED_COLOR);
+            }
         }
     }
 
@@ -112,7 +120,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         View rootView = inflater.inflate(R.layout.mapviewer, container, false);
         ImageView imageCompass = (ImageView) rootView.findViewById(R.id.imageViewCompass);
         this.txtSpeedView = (TextView) rootView.findViewById(R.id.txtSpeedView);
-        this.txtSpeedView.setText("0 " + SPEEDUNIT);
+        this.txtSpeedView.setText("0 " + SPEED_UNIT);
         this.textFormat = new Formatter(new StringBuilder());
         imageCompass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -127,34 +135,37 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
         this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
 
-
         northProvider = new NorthProvider(rootView.getContext());
         northProvider.setChangeEventListener(this);
         northProvider.start();
 
         org.mapsforge.core.graphics.Bitmap bm = AndroidGraphicFactory.convertToBitmap(getResources().getDrawable(R.drawable.navarrow));
         bm.scaleTo(75,75);
-
-        this.myLocation = new LatLong(northProvider.getCurrentLocation().getLatitude(), northProvider.getCurrentLocation().getLongitude());
+        if (northProvider.getCurrentLocation() != null) {
+            this.myLocation = new LatLong(northProvider.getCurrentLocation().getLatitude(), northProvider.getCurrentLocation().getLongitude());
+        }
         boatMarker = new Rotating(myLocation, bm, 0,0, 0);
-
-        createTileCache();
-        createMapLayer();
-        markingDanger(myLocation, "", colorTransparency);
-        this.mapView.getLayerManager().getLayers().add(BOATMARKERINDEX, boatMarker);
-        setCenter(myLocation);
+        try {
+            createTileCache();
+            createMapLayer();
+            markingDanger(myLocation, "", colorTransparency);
+            this.mapView.getLayerManager().getLayers().add(BOAT_MARKER_INDEX, boatMarker);
+            setCenter(myLocation);
+        } catch (MapFileException mEx) {
+            Toast.makeText(getActivity(), "Mapfile not found. Make sure that there exists a map file with the name 'norway.map' in the internal storage location", Toast.LENGTH_LONG).show();
+        }
         return rootView;
     }
 
-    public void testLocationOnPress(LatLong location) {
+    private void testLocationOnPress(LatLong location) {
         myLocation = new LatLong(location.latitude, location.longitude);
         boatMarker.setLocation(new LatLong(location.latitude, location.longitude));
         //Log.d(TAG, "onNpLocationChanged " + String.valueOf(location.toString()));
-        mapView.getLayerManager().getLayers().get(BOATMARKERINDEX).requestRedraw();
+        mapView.getLayerManager().getLayers().get(BOAT_MARKER_INDEX).requestRedraw();
         reverseGeoCode(myLocation);
     }
 
-    public void markingDanger(final LatLong position, final String key, Paint farge){
+    private void markingDanger(final LatLong position, final String key, Paint farge){
         float circleSize = 15 * this.mapView.getModel().displayModel.getScaleFactor();
 
         FixedPixelCircle dangerCircle = new FixedPixelCircle(position,
@@ -173,8 +184,8 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
                 canvas.drawText(text, pixelX - colorText.getTextWidth(text) / 2, pixelY + colorText.getTextHeight(text) / 2, colorText);
             }
         };
-        this.mapView.getLayerManager().getLayers().add(FARERINDEX, dangerCircle);
-        this.mapView.getLayerManager().getLayers().get(FARERINDEX).requestRedraw();
+        this.mapView.getLayerManager().getLayers().add(DANGER_INDEX, dangerCircle);
+        this.mapView.getLayerManager().getLayers().get(DANGER_INDEX).requestRedraw();
     }
 
 
@@ -220,7 +231,7 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
 
 
 /** Bruker AssesRendertheme klassen til å hente en rendertheme, returnerer null dersom det er feil */
-    public XmlRenderTheme getRenderTheme() {
+    private XmlRenderTheme getRenderTheme() {
         try {
             return new AssetsRenderTheme(this.getActivity(), getRenderThemePrefix(), getRenderThemeFile(), this);
         } catch (IOException e) {
@@ -229,33 +240,33 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
         return null;
     }
 
-    public String getRenderThemePrefix() {
+    private String getRenderThemePrefix() {
         return "";
     }
 
 /** Henter rendertheme fila */
-    public String getRenderThemeFile() {
+    private String getRenderThemeFile() {
         return "renderthemes/rendertheme-v4.xml";
     }
 
     /** Laqger layer ved bruk av en render theme, tegner opp kartet*/
     private void createMapLayer() {
-        MapDataStore mapDataStore = new MapFile(getMapFile());
-        TileRendererLayer tileRendererLayer = new TileRendererLayer(
-                tileCache, mapDataStore,
-                this.mapView.getModel().mapViewPosition,
-                false, true, AndroidGraphicFactory.INSTANCE) {
-            @Override
-            public boolean onLongPress(LatLong tapLatLong, Point thisXY,
-                                       Point tapXY) {
-                KartView.this.onLongPress(tapLatLong);
-                return true;
-            }
-        };
 
+            MapDataStore mapDataStore = new MapFile(getMapFile());
+            TileRendererLayer tileRendererLayer = new TileRendererLayer(
+                    tileCache, mapDataStore,
+                    this.mapView.getModel().mapViewPosition,
+                    false, true, AndroidGraphicFactory.INSTANCE) {
+                @Override
+                public boolean onLongPress(LatLong tapLatLong, Point thisXY,
+                                           Point tapXY) {
+                    KartView.this.onLongPress(tapLatLong);
+                    return true;
+                }
+            };
+            tileRendererLayer.setXmlRenderTheme(getRenderTheme());
+            this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
-        tileRendererLayer.setXmlRenderTheme(getRenderTheme());
-        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
     }
 
@@ -268,18 +279,20 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     }
 
     /** Henter mapfila i SD kortet*/
-    public File getMapFile() {
+    private File getMapFile() {
         return new File(Environment.getExternalStorageDirectory(), getMapFileName());
     }
 
-    protected String getMapFileName() {
-        return "germany.map";
+    private String getMapFileName() {
+        return "norway.map";
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.mapView.destroyAll();
+        if (!mapView.getLayerManager().getLayers().isEmpty()) {
+            mapView.destroyAll();
+        }
     }
 
     @Override
@@ -296,8 +309,10 @@ public class KartView extends Fragment implements XmlRenderThemeMenuCallback, No
     }
 
     private void setCenter(LatLong latLng){
-        this.mapView.getModel().mapViewPosition.setCenter(latLng);
-        this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 12);
+        if (!this.mapView.getLayerManager().getLayers().isEmpty()) {
+            this.mapView.getModel().mapViewPosition.setCenter(latLng);
+            this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 12);
+        }
     }
 
     @Override
