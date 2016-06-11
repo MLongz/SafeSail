@@ -18,7 +18,7 @@
         android:layout_marginBottom="1dip"
         android:gravity="center"
         android:singleLine="true"
-        android:text="@string/copyright_osm"
+        android:text="@string/attribution"
         android:textColor="#000"
         android:textSize="4pt" />
 

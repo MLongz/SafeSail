@@ -37,7 +37,7 @@
     <string name="action_example">Example action</string>
 
 
-    <string name="copyright_osm">Map data © OpenStreetMap contributors</string>
+    <string name="attribution">©Kartdata fra Kartverket og Miljøverndirektoratet</string>
 
     <string name="menu_preferences">Settings</string>
     <string name="menu_position_enter_coordinates">Map Position</string>
