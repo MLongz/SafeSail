@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sailsafe v6</string>
+    <string name="app_name">SafeSail</string>
 
     <string-array name="navigation_drawer_items_array">
         <item>@array/kart</item>

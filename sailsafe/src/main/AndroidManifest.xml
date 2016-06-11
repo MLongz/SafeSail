@@ -5,7 +5,7 @@
 >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-                     android:maxSdkVersion="22" />
+                     android:maxSdkVersion="23" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
                      android:maxSdkVersion="22" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -21,7 +21,7 @@
         android:name="no.hsn.sailsafe.SailsafeApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:label="Sailsafe v6"
+        android:label="SafeSail"
         android:theme="@style/AppTheme"
         android:largeHeap="true"
         android:icon="@drawable/safesale_icon"
